@@ -114,6 +114,36 @@ import {
 
 See the [Trust & Decision system](docs/trust-and-decision-system.md), [composition patterns](docs/trust-composition-patterns.md), and the runnable example in `examples/TrustShowcase.tsx`.
 
+### Memory Interfaces
+
+Primitives that expose an AI system's memory transparently — what it remembers, why, where it came from, how it influences decisions, and what is being forgotten. They are presentational: no backend, no memory engine, only rendering the data you supply.
+
+- **`MemoryCard`** — a single remembered item: title, summary, source, timestamp, confidence, and pinned state.
+- **`MemoryTimeline`** — memories in chronological order along a rail.
+- **`MemoryCitation`** — source attribution and retrieval metadata (excerpt, retrieval time, relevance score).
+- **`MemoryInfluence`** — how retrieved memories supported or opposed a decision.
+- **`ForgettingIndicator`** — a memory's lifecycle state: active, expiring soon, forgotten, or archived.
+
+```tsx
+import {
+  MemoryCard,
+  MemoryTimeline,
+  MemoryCitation,
+  MemoryInfluence,
+  ForgettingIndicator,
+} from "ai-native-interfaces";
+
+<MemoryCard
+  title="Prefers concise summaries"
+  source="Conversation"
+  timestamp="3 days ago"
+  confidence="high"
+  pinned
+/>;
+```
+
+See the [Memory Interfaces system](docs/memory-interfaces-system.md), [composition patterns & transparency guidelines](docs/memory-composition-patterns.md), and the runnable example in `examples/MemoryShowcase.tsx`.
+
 ## Documentation
 
 The design system foundation defines _how_ AI-native interfaces should behave. Start with the philosophy and principles, then use the guidelines and patterns when designing specific components.
@@ -144,6 +174,8 @@ The design system foundation defines _how_ AI-native interfaces should behave. S
 - [Agent State system](docs/agent-state-system.md)
 - [Trust & Decision system](docs/trust-and-decision-system.md)
 - [Trust component composition patterns](docs/trust-composition-patterns.md)
+- [Memory Interfaces system](docs/memory-interfaces-system.md)
+- [Memory composition patterns & transparency](docs/memory-composition-patterns.md)
 
 **Patterns and process**
 
