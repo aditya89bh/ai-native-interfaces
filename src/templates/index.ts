@@ -7,5 +7,6 @@
  * `./mockData` and is intentionally not re-exported here, so it is never shipped.
  */
 
+export * from "./CodingAgentTemplate";
 export * from "./CustomerSupportAgentTemplate";
 export * from "./ResearchAgentTemplate";
