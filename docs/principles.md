@@ -1,43 +1,111 @@
 # Design principles
 
-These principles guide every component in `ai-native-interfaces`. They exist because AI-native products introduce a non-human actor into the interface, and that actor can be uncertain, wrong, or acting on the user's behalf. The interface's job is to keep that behavior legible and keep the human in control.
+Six principles operationalize the [AI-native interface philosophy](philosophy.md). Every component and guideline in this repository should uphold them. Each principle below includes what it means, why it matters, how to apply it, and common anti-patterns to avoid.
 
-## 1. Make the agent legible
+Order matters only loosely, but the principles reinforce one another: visibility enables transparency, transparency enables trust, and human control depends on all three.
 
-Users should always be able to answer: _What is the agent doing? Why? What will happen next?_ Components surface state, intent, and reasoning rather than hiding them behind a spinner. Ambiguity is a design bug.
+## 1. Visibility
 
-## 2. Communicate uncertainty honestly
+**What it means.** The state of the system is always observable. Users can see what the agent is doing right now — idle, thinking, acting, waiting, or failed — without guessing.
 
-Models are probabilistic. Confidence should be shown, not implied, and never fabricated. When certainty is low, the interface should say so and make it easy to verify or override. We never present a guess as a fact.
+**Why it matters.** A non-deterministic system that gives no feedback feels broken or frozen. Visibility replaces anxiety with situational awareness and is the precondition for every other principle.
 
-## 3. Favor reversibility
+**How to apply it.**
 
-Prefer designs where actions can be previewed, undone, or confirmed before they take effect. Destructive or high-impact actions get proportionally stronger friction — clear risk warnings and explicit approval.
+- Represent agent state explicitly with a defined [state taxonomy](agent-states.md), not a generic spinner.
+- Show progress for anything that takes more than a moment.
+- Make the current step of a multi-step task identifiable at a glance.
 
-## 4. Keep humans in control
+**Avoid.**
 
-Automation should feel like delegation, not loss of control. Every autonomous flow needs a clear handoff point where a person can pause, intervene, or take over. The human is the final authority.
+- Ambiguous loading states that could mean "working," "stuck," or "done."
+- Hiding activity that has real consequences for the user.
 
-## 5. Build for trust through transparency
+## 2. Transparency
 
-Trust is earned by showing your work. Action logs, memory panels, and audit trails let users understand and verify what happened. Nothing important should be invisible or unrecoverable.
+**What it means.** The system reveals not just _what_ it is doing but _why_ — its reasoning, its inputs, its confidence, and the actions it has taken.
 
-## 6. Accessible by default
+**Why it matters.** Users cannot evaluate or correct a decision they cannot inspect. Transparency turns a black box into a collaborator whose work can be checked.
 
-Keyboard navigation, screen-reader support, sufficient contrast, and respect for reduced-motion preferences are baseline requirements, not enhancements. An interface that excludes people is not finished.
+**How to apply it.**
 
-## 7. Composable over monolithic
+- Surface the reasoning or sources behind a consequential output when the user asks for them.
+- Communicate [confidence](confidence.md) and [uncertainty](uncertainty.md) honestly.
+- Keep an inspectable record of actions the agent has taken.
 
-Small, focused primitives that combine into patterns beat large, opinionated widgets. Teams should be able to adopt one component without buying into everything else.
+**Avoid.**
 
-## 8. Styleable, not locked in
+- Presenting outputs as authoritative when they are uncertain.
+- Burying the "why" so deep that no one finds it.
 
-Sensible defaults out of the box, with design tokens and class overrides for teams that need to match their own brand. The library should adapt to products, not force products to adapt to it.
+## 3. Human control
 
-## 9. Calm, not alarming
+**What it means.** The human is the final authority. They can approve, reject, pause, redirect, interrupt, or take over at any time.
 
-Surface information at a level of urgency that matches its actual importance. Reserve strong signals — color, motion, interruption — for moments that genuinely warrant them, so they retain their meaning.
+**Why it matters.** Delegation only works when it can be revoked. Without a reliable way to intervene, automation becomes something that happens _to_ the user rather than _for_ them.
 
-## 10. Honest by construction
+**How to apply it.**
 
-The library never invents data, metrics, or confidence values. Components render what they are given. It is the product's responsibility to supply truthful inputs, and the library's responsibility not to distort them.
+- Gate consequential or irreversible actions behind explicit [approval](approvals.md).
+- Provide clear [interruption and cancellation](interruption-and-cancellation.md) controls.
+- Make [human handoff](human-handoff.md) explicit and bidirectional.
+
+**Avoid.**
+
+- Autonomous actions with no off switch.
+- Approvals that are so frequent or vague they become reflexive clicks.
+
+## 4. Progressive disclosure
+
+**What it means.** Show the right amount of information at the right time. Start with a clear summary and let users drill into detail on demand.
+
+**Why it matters.** Transparency and simplicity appear to conflict; progressive disclosure resolves the tension. It keeps the default view calm while making full detail available to those who need it.
+
+**How to apply it.**
+
+- Lead with a concise, human-readable summary of state or results.
+- Offer expandable detail: reasoning, logs, raw data, and alternatives.
+- Reserve interruptions for information that genuinely requires immediate attention (see [notification hierarchy](notifications.md)).
+
+**Avoid.**
+
+- Dumping raw model output or full logs into the primary view.
+- Hiding critical information behind so many layers that it is effectively invisible.
+
+## 5. Recoverability
+
+**What it means.** Users can undo, reverse, or safely recover from the agent's actions and their own. Mistakes are expected and designed for.
+
+**Why it matters.** Because the agent is fallible and acts on the user's behalf, the cost of a wrong action must be low. Recoverability is what makes it safe to let an agent act at all.
+
+**How to apply it.**
+
+- Prefer preview-then-confirm over immediate execution for impactful actions.
+- Offer undo where technically possible; where it is not, warn clearly and require confirmation (see [risk warnings](component-roadmap.md)).
+- Keep an action history that supports review and, where feasible, rollback.
+
+**Avoid.**
+
+- Irreversible actions triggered without confirmation.
+- "Are you sure?" dialogs that carry no real information about consequences.
+
+## 6. Trust
+
+**What it means.** Trust is the outcome of the other five principles working together. A trustworthy interface is honest, legible, controllable, and forgiving — consistently, over time.
+
+**Why it matters.** Trust is the currency of AI products. It is slow to earn and fast to lose. A single instance of hidden state, overstated confidence, or an unrecoverable mistake can undo months of goodwill.
+
+**How to apply it.**
+
+- Be honest by construction: never fabricate data, confidence, or outcomes.
+- Be consistent: the same signal should always mean the same thing.
+- Be humble: acknowledge limits, errors, and uncertainty openly.
+
+**Avoid.**
+
+- Optimizing for the appearance of competence over actual reliability.
+- Inconsistent behavior that forces users to relearn the system.
+
+## Applying the principles
+
+These principles are defaults, not dogma. When they conflict, favor the one that best preserves the human's understanding and control. The [design review checklist](design-review-checklist.md) turns these principles into concrete questions you can ask of any AI-native interface.
