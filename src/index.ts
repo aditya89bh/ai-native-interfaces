@@ -7,5 +7,6 @@
 
 export * from "./components";
 export * from "./patterns";
+export * from "./tokens";
 
 export const version = "0.0.0";
