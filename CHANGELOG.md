@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-07-03
+
+First stable release. `ai-native-interfaces` provides a complete, presentational, accessible component set for AI-native products — agent state, trust & decision, memory, workflow & execution, and human collaboration — plus product templates, theming, and a full release/CI pipeline.
+
 ### Added
 
 - Repository foundation: React + TypeScript project structure, with Tailwind CSS, Storybook, ESLint, Prettier, Vitest, and tsup.
@@ -21,7 +25,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Subpath exports (`/components`, `/templates`, `/theme`, `/tokens`, `/styles.css`) with code splitting for fine-grained tree-shaking.
 - Documentation: API reference, theming, versioning & migration, maintenance & component lifecycle, library comparison, and production hardening guides.
 - Storybook light/dark theme toolbar, global autodocs, and a usage overview; Chromatic visual-regression configuration.
-- Test coverage across all components, templates, and the theme provider.
+- Test coverage across all components, templates, and the theme provider (206 unit tests).
+- Release engineering: CI (lint, typecheck, test, library build, Storybook build), GitHub Pages Storybook deployment, and a tag-driven npm publish workflow with provenance.
+- Community health files: issue templates, pull request template, `SECURITY.md`, `CODE_OF_CONDUCT.md`, `SUPPORT.md`, `FUNDING.md` (placeholder), Dependabot configuration, and label documentation.
+- Release documentation: `RELEASE_PROCESS.md`, release checklist, release engineering guide, and a repository architecture overview diagram.
 
 ### Changed
 
@@ -32,3 +39,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Hid the decorative rating icon in `FeedbackCapture` from assistive technology.
+
+[Unreleased]: https://github.com/aditya89bh/ai-native-interfaces/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/aditya89bh/ai-native-interfaces/releases/tag/v1.0.0
