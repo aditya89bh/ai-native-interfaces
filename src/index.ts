@@ -5,4 +5,7 @@
  * tokens, and patterns are re-exported from here as they are added.
  */
 
+export * from "./components";
+export * from "./patterns";
+
 export const version = "0.0.0";
