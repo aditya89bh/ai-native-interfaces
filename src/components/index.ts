@@ -15,6 +15,7 @@ export * from "./AgentStatusCard";
 export * from "./ApprovalPanel";
 export * from "./ConfidenceIndicator";
 export * from "./DecisionSummary";
+export * from "./EscalationBanner";
 export * from "./ExecutionGraph";
 export * from "./ExecutionTimeline";
 export * from "./ExplanationCard";
