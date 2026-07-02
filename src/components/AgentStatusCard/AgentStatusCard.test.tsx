@@ -33,7 +33,11 @@ describe("AgentStatusCard", () => {
 
   it("prefers a custom label over the default", () => {
     render(
-      <AgentStatusCard name="Research agent" state="idle" label="Standing by" />,
+      <AgentStatusCard
+        name="Research agent"
+        state="idle"
+        label="Standing by"
+      />,
     );
 
     expect(screen.getByText("Standing by")).toBeInTheDocument();

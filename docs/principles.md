@@ -4,7 +4,7 @@ These principles guide every component in `ai-native-interfaces`. They exist bec
 
 ## 1. Make the agent legible
 
-Users should always be able to answer: *What is the agent doing? Why? What will happen next?* Components surface state, intent, and reasoning rather than hiding them behind a spinner. Ambiguity is a design bug.
+Users should always be able to answer: _What is the agent doing? Why? What will happen next?_ Components surface state, intent, and reasoning rather than hiding them behind a spinner. Ambiguity is a design bug.
 
 ## 2. Communicate uncertainty honestly
 
