@@ -77,9 +77,34 @@ stories/        # Storybook stories
 
 ## Documentation
 
-- [Design principles](docs/principles.md)
-- [Component roadmap](docs/component-roadmap.md)
-- [Architecture](docs/architecture.md)
+The design system foundation defines _how_ AI-native interfaces should behave. Start with the philosophy and principles, then use the guidelines and patterns when designing specific components.
+
+**Foundations**
+
+- [Philosophy](docs/philosophy.md) — the beliefs behind the library.
+- [Design principles](docs/principles.md) — visibility, transparency, human control, progressive disclosure, recoverability, and trust.
+- [Architecture](docs/architecture.md) — how the library is structured.
+- [Component roadmap](docs/component-roadmap.md) — planned components.
+
+**Behavior guidelines**
+
+- [Agent state taxonomy](docs/agent-states.md)
+- [Confidence scale](docs/confidence.md)
+- [Uncertainty communication](docs/uncertainty.md)
+- [Approval interaction guidelines](docs/approvals.md)
+- [Interruption and cancellation](docs/interruption-and-cancellation.md)
+- [Human handoff patterns](docs/human-handoff.md)
+- [Memory visualization principles](docs/memory-visualization.md)
+- [Task progress visualization](docs/task-progress.md)
+- [Notification hierarchy](docs/notifications.md)
+- [Accessibility guidelines](docs/accessibility.md)
+- [Responsive behavior guidelines](docs/responsive.md)
+
+**Patterns and process**
+
+- [Reusable interaction patterns](docs/interaction-patterns.md)
+- [Design review checklist](docs/design-review-checklist.md)
+- [Component naming conventions](docs/naming-conventions.md)
 
 ## Contributing
 
