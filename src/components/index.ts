@@ -6,4 +6,5 @@
  * are re-exported from here as they are implemented.
  */
 
+export * from "./AgentAvatar";
 export * from "./AgentStatusCard";
