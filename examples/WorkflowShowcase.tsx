@@ -23,27 +23,63 @@ const steps: ExecutionStep[] = [
     status: "completed",
     timestamp: "0:04",
   },
-  { id: "3", title: "Validate schema", status: "running", timestamp: "0:06" },
-  { id: "4", title: "Upload to warehouse", status: "pending" },
+  {
+    id: "3",
+    title: "Validate schema",
+    status: "completed",
+    timestamp: "0:06",
+  },
+  {
+    id: "4",
+    title: "Enrich with geo data",
+    status: "running",
+    timestamp: "0:09",
+  },
+  {
+    id: "5",
+    title: "Enrich with account tier",
+    status: "completed",
+    timestamp: "0:08",
+  },
+  {
+    id: "6",
+    title: "Aggregate metrics",
+    status: "pending",
+  },
+  {
+    id: "7",
+    title: "Publish to warehouse",
+    status: "pending",
+  },
 ];
 
 const queue: QueueItem[] = [
-  { id: "q1", label: "Validate schema", status: "running" },
-  { id: "q2", label: "Upload to warehouse", status: "pending" },
-  { id: "q3", label: "Notify subscribers", status: "pending" },
+  { id: "q1", label: "Enrich with geo data", status: "running" },
+  { id: "q2", label: "Enrich with account tier", status: "completed" },
+  { id: "q3", label: "Reverse-geocode fallback", status: "failed" },
+  { id: "q4", label: "Aggregate metrics", status: "pending" },
+  { id: "q5", label: "Publish to warehouse", status: "pending" },
+  { id: "q6", label: "Notify subscribers", status: "pending" },
 ];
 
 const nodes: ExecutionGraphNode[] = [
   { id: "fetch", label: "Fetch", status: "completed" },
   { id: "transform", label: "Transform", status: "completed" },
-  { id: "validate", label: "Validate", status: "running" },
-  { id: "upload", label: "Upload", status: "pending" },
+  { id: "validate", label: "Validate", status: "completed" },
+  { id: "geo", label: "Enrich: geo", status: "running" },
+  { id: "tier", label: "Enrich: tier", status: "completed" },
+  { id: "aggregate", label: "Aggregate", status: "pending" },
+  { id: "publish", label: "Publish", status: "pending" },
 ];
 
 const edges: ExecutionGraphEdge[] = [
   { from: "fetch", to: "transform" },
   { from: "transform", to: "validate" },
-  { from: "validate", to: "upload" },
+  { from: "validate", to: "geo" },
+  { from: "validate", to: "tier" },
+  { from: "geo", to: "aggregate" },
+  { from: "tier", to: "aggregate" },
+  { from: "aggregate", to: "publish" },
 ];
 
 const log: ActionLogEntry[] = [
@@ -64,9 +100,32 @@ const log: ActionLogEntry[] = [
   },
   {
     id: "l3",
-    action: "Validating schema",
+    action: "Validated schema against v3 contract",
     actor: "Agent",
     timestamp: "10:03:05",
+    outcome: "success",
+  },
+  {
+    id: "l4",
+    action: "Reverse-geocode fallback failed",
+    actor: "Tool: geo",
+    timestamp: "10:03:22",
+    outcome: "failure",
+    detail: "Provider timed out after 5s; retrying with cache",
+  },
+  {
+    id: "l5",
+    action: "Enriched 1,186 records from cache",
+    actor: "Tool: geo",
+    timestamp: "10:03:29",
+    outcome: "info",
+    detail: "18 records deferred to next run",
+  },
+  {
+    id: "l6",
+    action: "Enriching remaining records with geo data",
+    actor: "Agent",
+    timestamp: "10:03:31",
     outcome: "pending",
   },
 ];
