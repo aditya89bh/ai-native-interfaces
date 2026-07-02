@@ -1,6 +1,6 @@
 {
   "name": "ai-native-interfaces",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A reusable UI component library for AI-native products: approvals, confidence, agent state, memory panels, task progress, risk warnings, action logs, and human handoff.",
   "keywords": [
     "react",
@@ -82,6 +82,7 @@
     "format": "prettier --write .",
     "test": "vitest run",
     "test:watch": "vitest",
+    "prepublishOnly": "npm run build",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "chromatic": "npx chromatic"
