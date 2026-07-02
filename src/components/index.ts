@@ -17,5 +17,6 @@ export * from "./DecisionSummary";
 export * from "./ExplanationCard";
 export * from "./MemoryCard";
 export * from "./MemoryCitation";
+export * from "./MemoryInfluence";
 export * from "./MemoryTimeline";
 export * from "./RiskBadge";
