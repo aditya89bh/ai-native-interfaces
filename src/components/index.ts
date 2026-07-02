@@ -11,5 +11,6 @@ export * from "./AgentCapabilityBadges";
 export * from "./AgentHeartbeat";
 export * from "./AgentPresence";
 export * from "./AgentStatusCard";
+export * from "./ApprovalPanel";
 export * from "./ConfidenceIndicator";
 export * from "./RiskBadge";
