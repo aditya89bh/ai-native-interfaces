@@ -6,11 +6,11 @@ The library favors a coarse, honest scale over false precision. A specific perce
 
 ## The scale
 
-| Level  | Key      | Meaning                                                             | Typical presentation             |
-| ------ | -------- | ------------------------------------------------------------------ | -------------------------------- |
-| High   | `high`   | The system has strong grounds for this output.                     | Present normally; light emphasis. |
-| Medium | `medium` | Plausible, but worth a glance before relying on it.                | Add a visible "verify" affordance. |
-| Low    | `low`    | Weak grounds; likely to be wrong or incomplete.                    | Warn; encourage verification or alternatives. |
+| Level  | Key      | Meaning                                             | Typical presentation                          |
+| ------ | -------- | --------------------------------------------------- | --------------------------------------------- |
+| High   | `high`   | The system has strong grounds for this output.      | Present normally; light emphasis.             |
+| Medium | `medium` | Plausible, but worth a glance before relying on it. | Add a visible "verify" affordance.            |
+| Low    | `low`    | Weak grounds; likely to be wrong or incomplete.     | Warn; encourage verification or alternatives. |
 
 These map to the `confidenceColors` tokens (`low`, `medium`, `high`) in `src/tokens`.
 

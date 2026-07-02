@@ -6,17 +6,17 @@ These nine states are the canonical set used across the library. They are define
 
 ## The states
 
-| State            | Key             | Meaning                                                       | Human action implied      |
-| ---------------- | --------------- | ------------------------------------------------------------ | ------------------------- |
-| Idle             | `idle`          | Ready, but not currently working on anything.                | Optional: assign a task.  |
-| Thinking         | `thinking`      | Interpreting input or reasoning; no actions taken yet.       | Wait.                     |
-| Planning         | `planning`      | Decomposing the task into steps or selecting tools.          | Wait; optionally review.  |
-| Acting           | `acting`        | Executing steps and taking actions in the world.            | Monitor.                  |
-| Waiting          | `waiting`       | Paused on an external dependency (a tool, API, or timer).    | Wait.                     |
-| Needs approval   | `needsApproval` | Paused, requesting explicit human authorization to proceed.  | Approve or reject.        |
-| Blocked          | `blocked`       | Cannot proceed due to a missing input, permission, or error condition it cannot resolve. | Intervene or unblock.     |
-| Failed           | `failed`        | The task ended unsuccessfully.                               | Retry, adjust, or abort.  |
-| Completed        | `completed`     | The task finished successfully.                              | Review the result.        |
+| State          | Key             | Meaning                                                                                  | Human action implied     |
+| -------------- | --------------- | ---------------------------------------------------------------------------------------- | ------------------------ |
+| Idle           | `idle`          | Ready, but not currently working on anything.                                            | Optional: assign a task. |
+| Thinking       | `thinking`      | Interpreting input or reasoning; no actions taken yet.                                   | Wait.                    |
+| Planning       | `planning`      | Decomposing the task into steps or selecting tools.                                      | Wait; optionally review. |
+| Acting         | `acting`        | Executing steps and taking actions in the world.                                         | Monitor.                 |
+| Waiting        | `waiting`       | Paused on an external dependency (a tool, API, or timer).                                | Wait.                    |
+| Needs approval | `needsApproval` | Paused, requesting explicit human authorization to proceed.                              | Approve or reject.       |
+| Blocked        | `blocked`       | Cannot proceed due to a missing input, permission, or error condition it cannot resolve. | Intervene or unblock.    |
+| Failed         | `failed`        | The task ended unsuccessfully.                                                           | Retry, adjust, or abort. |
+| Completed      | `completed`     | The task finished successfully.                                                          | Review the result.       |
 
 ## Distinctions that matter
 

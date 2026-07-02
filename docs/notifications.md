@@ -8,14 +8,14 @@ The core rule: **match the loudness of a signal to the true consequence of ignor
 
 From quietest to loudest:
 
-| Level        | Use for                                                        | Interrupts user? | Persists? |
-| ------------ | ------------------------------------------------------------- | ---------------- | --------- |
-| Ambient      | Ongoing state (agent is `thinking`, `acting`).                | No               | While true |
-| Informational | Something completed successfully; low-stakes updates.        | No               | Briefly   |
-| Notice       | Something worth knowing that may need eventual action.        | No               | Until seen |
-| Action needed | The agent is blocked or needs [approval](approvals.md).      | Gently           | Until resolved |
-| Warning      | A risky or consequential situation is imminent.               | Yes              | Until acknowledged |
-| Critical     | Failure or harm requiring immediate attention.                | Yes              | Until resolved |
+| Level         | Use for                                                 | Interrupts user? | Persists?          |
+| ------------- | ------------------------------------------------------- | ---------------- | ------------------ |
+| Ambient       | Ongoing state (agent is `thinking`, `acting`).          | No               | While true         |
+| Informational | Something completed successfully; low-stakes updates.   | No               | Briefly            |
+| Notice        | Something worth knowing that may need eventual action.  | No               | Until seen         |
+| Action needed | The agent is blocked or needs [approval](approvals.md). | Gently           | Until resolved     |
+| Warning       | A risky or consequential situation is imminent.         | Yes              | Until acknowledged |
+| Critical      | Failure or harm requiring immediate attention.          | Yes              | Until resolved     |
 
 ## Choosing a level
 
