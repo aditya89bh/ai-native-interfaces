@@ -7,14 +7,26 @@
     "typescript",
     "tailwindcss",
     "ui-components",
+    "react-components",
     "design-system",
+    "design-tokens",
     "ai-native",
     "ai-ux",
     "agents",
+    "agent-ui",
+    "llm",
+    "copilot",
+    "approvals",
+    "confidence",
     "human-in-the-loop",
+    "accessibility",
+    "dark-mode",
+    "tree-shakeable",
+    "esm",
     "storybook"
   ],
   "license": "MIT",
+  "author": "aditya89bh",
   "private": false,
   "homepage": "https://github.com/aditya89bh/ai-native-interfaces#readme",
   "repository": {
@@ -25,7 +37,9 @@
     "url": "https://github.com/aditya89bh/ai-native-interfaces/issues"
   },
   "type": "module",
-  "sideEffects": false,
+  "sideEffects": [
+    "**/*.css"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",

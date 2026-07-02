@@ -33,7 +33,7 @@ Accessibility is a standing requirement, re-audited in this phase (see [accessib
 
 ## Bundle size and tree-shaking
 
-- ESM-only output with `"sideEffects": false`, so unused components are dropped by any modern bundler.
+- ESM-only output with `"sideEffects": ["**/*.css"]` — JavaScript is side-effect free so unused components are dropped by any modern bundler, while the opt-in stylesheet is preserved when explicitly imported.
 - Named exports throughout; no default exports and no barrel side effects.
 - `react` / `react-dom` are peer dependencies and external to the bundle. No runtime dependencies are added.
 - Stylesheet (`styles.css`) is a Tailwind entry consumers opt into; importing a component never pulls in CSS as a side effect.
