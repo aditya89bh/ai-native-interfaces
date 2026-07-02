@@ -12,3 +12,4 @@ export * from "./AgentHeartbeat";
 export * from "./AgentPresence";
 export * from "./AgentStatusCard";
 export * from "./ConfidenceIndicator";
+export * from "./RiskBadge";
