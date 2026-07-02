@@ -15,6 +15,7 @@ export interface FeedbackValue {
 function StarIcon({ filled }: { filled: boolean }) {
   return (
     <svg
+      aria-hidden="true"
       viewBox="0 0 20 20"
       className="h-5 w-5"
       fill={filled ? semanticStatus.warning : "none"}
