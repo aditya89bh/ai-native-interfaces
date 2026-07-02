@@ -59,13 +59,20 @@ export const semanticStatus = {
   neutral: "#64748b",
 } as const;
 
+/**
+ * Colors for the agent state taxonomy. See docs/agent-states.md for the
+ * definition and intended meaning of each state.
+ */
 export const agentStateColors = {
   idle: "#64748b",
   thinking: "#6366f1",
+  planning: "#8b5cf6",
   acting: "#0ea5e9",
   waiting: "#f59e0b",
-  success: "#10b981",
-  error: "#ef4444",
+  needsApproval: "#f97316",
+  blocked: "#f43f5e",
+  failed: "#ef4444",
+  completed: "#10b981",
 } as const;
 
 export const confidenceColors = {

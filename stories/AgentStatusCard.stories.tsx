@@ -11,7 +11,17 @@ const meta = {
   argTypes: {
     state: {
       control: "select",
-      options: ["idle", "thinking", "acting", "waiting", "success", "error"],
+      options: [
+        "idle",
+        "thinking",
+        "planning",
+        "acting",
+        "waiting",
+        "needsApproval",
+        "blocked",
+        "failed",
+        "completed",
+      ],
     },
   },
 } satisfies Meta<typeof AgentStatusCard>;
@@ -31,7 +41,15 @@ export const Thinking: Story = {
   args: {
     name: "Research agent",
     state: "thinking",
-    description: "Analyzing the request and planning next steps.",
+    description: "Interpreting the request.",
+  },
+};
+
+export const Planning: Story = {
+  args: {
+    name: "Research agent",
+    state: "planning",
+    description: "Breaking the task into steps.",
   },
 };
 
@@ -47,22 +65,38 @@ export const Waiting: Story = {
   args: {
     name: "Research agent",
     state: "waiting",
-    description: "Needs your approval to continue.",
+    description: "Waiting on an external response.",
   },
 };
 
-export const Success: Story = {
+export const NeedsApproval: Story = {
   args: {
     name: "Research agent",
-    state: "success",
-    description: "Finished and returned a summary.",
+    state: "needsApproval",
+    description: "Requesting your approval to continue.",
   },
 };
 
-export const Error: Story = {
+export const Blocked: Story = {
   args: {
     name: "Research agent",
-    state: "error",
+    state: "blocked",
+    description: "Missing a required permission.",
+  },
+};
+
+export const Failed: Story = {
+  args: {
+    name: "Research agent",
+    state: "failed",
     description: "Could not complete the task.",
+  },
+};
+
+export const Completed: Story = {
+  args: {
+    name: "Research agent",
+    state: "completed",
+    description: "Finished and returned a summary.",
   },
 };

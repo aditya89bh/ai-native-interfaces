@@ -8,10 +8,13 @@ import { agentStateColors } from "../../tokens";
 const defaultStateLabels: Record<AgentState, string> = {
   idle: "Idle",
   thinking: "Thinking",
+  planning: "Planning",
   acting: "Acting",
-  waiting: "Waiting for input",
-  success: "Completed",
-  error: "Error",
+  waiting: "Waiting",
+  needsApproval: "Needs approval",
+  blocked: "Blocked",
+  failed: "Failed",
+  completed: "Completed",
 };
 
 export interface AgentStatusCardProps {
