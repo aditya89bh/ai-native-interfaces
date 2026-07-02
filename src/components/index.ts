@@ -15,4 +15,5 @@ export * from "./ApprovalPanel";
 export * from "./ConfidenceIndicator";
 export * from "./DecisionSummary";
 export * from "./ExplanationCard";
+export * from "./MemoryCard";
 export * from "./RiskBadge";
