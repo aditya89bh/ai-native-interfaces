@@ -84,9 +84,9 @@ const log: ActionLogEntry[] = [
  */
 export function WorkflowShowcase() {
   return (
-    <div className="mx-auto max-w-2xl space-y-6 p-6">
+    <div className="mx-auto max-w-2xl space-y-6 p-4 sm:p-6">
       <header className="space-y-2">
-        <h2 className="text-lg font-semibold text-slate-900">
+        <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
           Data pipeline run
         </h2>
         <TaskProgress label="Overall progress" value={62} />
@@ -96,7 +96,7 @@ export function WorkflowShowcase() {
         <section aria-labelledby="steps-heading" className="space-y-2">
           <h3
             id="steps-heading"
-            className="text-xs font-semibold uppercase tracking-wide text-slate-500"
+            className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400"
           >
             Steps
           </h3>
@@ -106,7 +106,7 @@ export function WorkflowShowcase() {
         <section aria-labelledby="queue-heading" className="space-y-2">
           <h3
             id="queue-heading"
-            className="text-xs font-semibold uppercase tracking-wide text-slate-500"
+            className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400"
           >
             Queue
           </h3>
@@ -117,7 +117,7 @@ export function WorkflowShowcase() {
       <section aria-labelledby="graph-heading" className="space-y-2">
         <h3
           id="graph-heading"
-          className="text-xs font-semibold uppercase tracking-wide text-slate-500"
+          className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400"
         >
           Dependencies
         </h3>
@@ -127,7 +127,7 @@ export function WorkflowShowcase() {
       <section aria-labelledby="log-heading" className="space-y-2">
         <h3
           id="log-heading"
-          className="text-xs font-semibold uppercase tracking-wide text-slate-500"
+          className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400"
         >
           Action log
         </h3>

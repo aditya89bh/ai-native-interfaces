@@ -36,11 +36,11 @@ const timeline: Array<{ state: AgentState; description: string; at: string }> =
  */
 export function AgentStateShowcase() {
   return (
-    <div className="mx-auto max-w-xl space-y-6 p-6">
+    <div className="mx-auto max-w-2xl space-y-6 p-4 sm:p-6">
       <header className="flex items-center gap-4">
         <AgentAvatar name="Research agent" state="acting" size="lg" />
         <div className="min-w-0 flex-1">
-          <h2 className="truncate text-lg font-semibold text-slate-900">
+          <h2 className="truncate text-lg font-semibold text-slate-900 dark:text-slate-100">
             Research agent
           </h2>
           <div className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-1">
@@ -53,7 +53,7 @@ export function AgentStateShowcase() {
       <section aria-labelledby="capabilities-heading" className="space-y-2">
         <h3
           id="capabilities-heading"
-          className="text-xs font-semibold uppercase tracking-wide text-slate-500"
+          className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400"
         >
           Capabilities
         </h3>
@@ -72,11 +72,11 @@ export function AgentStateShowcase() {
       <section aria-labelledby="activity-heading" className="space-y-2">
         <h3
           id="activity-heading"
-          className="text-xs font-semibold uppercase tracking-wide text-slate-500"
+          className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400"
         >
           Activity
         </h3>
-        <div className="grid gap-3">
+        <div className="grid gap-3 sm:grid-cols-2">
           {timeline.map((entry) => (
             <AgentStatusCard
               key={entry.at}

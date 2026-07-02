@@ -21,9 +21,9 @@ export function CollaborationShowcase() {
   const noop = () => undefined;
 
   return (
-    <div className="mx-auto max-w-2xl space-y-6 p-6">
-      <header className="flex items-center justify-between gap-4">
-        <h2 className="text-lg font-semibold text-slate-900">
+    <div className="mx-auto max-w-2xl space-y-6 p-4 sm:p-6">
+      <header className="flex flex-wrap items-center justify-between gap-3">
+        <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
           Refund request review
         </h2>
         <AssignmentStatus status="assigned" assignee="Dana Lee" />

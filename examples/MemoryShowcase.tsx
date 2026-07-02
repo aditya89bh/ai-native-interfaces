@@ -69,11 +69,11 @@ export function MemoryShowcase() {
   const [pinned, setPinned] = useState(true);
 
   return (
-    <div className="mx-auto max-w-xl space-y-6 p-6">
+    <div className="mx-auto max-w-2xl space-y-6 p-4 sm:p-6">
       <section aria-labelledby="memory-heading" className="space-y-3">
         <h2
           id="memory-heading"
-          className="text-lg font-semibold text-slate-900"
+          className="text-lg font-semibold text-slate-900 dark:text-slate-100"
         >
           What the assistant remembers
         </h2>
@@ -106,20 +106,22 @@ export function MemoryShowcase() {
         />
       </section>
 
-      <section aria-labelledby="history-heading" className="space-y-3">
-        <h3
-          id="history-heading"
-          className="text-xs font-semibold uppercase tracking-wide text-slate-500"
-        >
-          Timeline
-        </h3>
-        <MemoryTimeline items={timeline} />
-      </section>
+      <div className="grid gap-6 lg:grid-cols-2">
+        <section aria-labelledby="history-heading" className="space-y-3">
+          <h3
+            id="history-heading"
+            className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400"
+          >
+            Timeline
+          </h3>
+          <MemoryTimeline items={timeline} />
+        </section>
 
-      <MemoryInfluence
-        decision="Reply with a 2-sentence summary"
-        influences={influences}
-      />
+        <MemoryInfluence
+          decision="Reply with a 2-sentence summary"
+          influences={influences}
+        />
+      </div>
     </div>
   );
 }

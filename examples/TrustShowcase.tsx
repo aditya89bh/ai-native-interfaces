@@ -34,7 +34,7 @@ export function TrustShowcase() {
   };
 
   return (
-    <div className="mx-auto max-w-xl space-y-4 p-6">
+    <div className="mx-auto max-w-2xl space-y-4 p-4 sm:p-6">
       <DecisionSummary
         action="Refund the customer $42.00"
         confidence="high"
@@ -69,7 +69,7 @@ export function TrustShowcase() {
           onEdit={() => undefined}
         />
       ) : (
-        <p className="rounded-card border border-slate-200 bg-slate-50 p-3 text-sm text-slate-600">
+        <p className="rounded-card border border-slate-200 bg-slate-50 p-3 text-sm text-slate-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
           Decision {status}. Reset by reloading the example.
         </p>
       )}
