@@ -1,6 +1,16 @@
 # ai-native-interfaces
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-1e293b.svg)](LICENSE)
+![React 18+](https://img.shields.io/badge/React-18%2B-0ea5e9.svg)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6.svg)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-38bdf8.svg)
+![Storybook](https://img.shields.io/badge/Storybook-8-ff4785.svg)
+![Tree-shakeable](https://img.shields.io/badge/bundle-tree--shakeable-10b981.svg)
+[![Visual regression](https://github.com/aditya89bh/ai-native-interfaces/actions/workflows/visual-regression.yml/badge.svg)](.github/workflows/visual-regression.yml)
+
 A reusable UI component library for **AI-native products** — the interface primitives that teams keep rebuilding whenever they ship an agent, assistant, or automated workflow.
+
+![Layered architecture: design tokens support components, which compose into product templates, with theming across all layers.](docs/assets/architecture.svg)
 
 Traditional design systems assume a human is the only actor. AI-native products introduce a second actor — the model or agent — that reasons, acts, and sometimes gets things wrong. That shift creates new interface needs: showing what an agent is doing, how confident it is, what it remembers, where the risk is, and when a human should step in.
 

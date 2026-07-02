@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="440" viewBox="0 0 920 440" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" role="img" aria-label="Layered architecture: design tokens support components, which compose into product templates, with theming across all layers.">
+  <rect width="920" height="440" rx="16" fill="#f8fafc"/>
+  <text x="32" y="44" font-size="22" font-weight="700" fill="#0f172a">AI Native Interfaces  architecture</text>
+  <text x="32" y="68" font-size="13" fill="#64748b">Presentational layers: design tokens support components, which compose into product templates. Theming spans all layers.</text>
+
+  <!-- Templates layer -->
+  <rect x="32" y="92" width="700" height="78" rx="12" fill="#eef2ff" stroke="#c7d2fe"/>
+  <text x="48" y="116" font-size="14" font-weight="700" fill="#3730a3">Product templates</text>
+  <text x="48" y="136" font-size="12" fill="#4338ca">Customer support · Research · Coding · Operations · Workflow approval console</text>
+  <text x="48" y="156" font-size="11" fill="#6366f1">Whole product surfaces composed from components</text>
+
+  <!-- Components layer -->
+  <rect x="32" y="184" width="700" height="150" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="48" y="208" font-size="14" font-weight="700" fill="#0f172a">Components</text>
+
+  <g font-size="11">
+    <rect x="48" y="222" width="150" height="96" rx="8" fill="#f1f5f9" stroke="#e2e8f0"/>
+    <text x="60" y="242" font-weight="700" fill="#334155">Agent state</text>
+    <text x="60" y="262" fill="#64748b">StatusCard · Avatar</text>
+    <text x="60" y="278" fill="#64748b">Capability · Heartbeat</text>
+    <text x="60" y="294" fill="#64748b">Presence</text>
+
+    <rect x="206" y="222" width="150" height="96" rx="8" fill="#f1f5f9" stroke="#e2e8f0"/>
+    <text x="218" y="242" font-weight="700" fill="#334155">Trust &amp; decision</text>
+    <text x="218" y="262" fill="#64748b">Confidence · Risk</text>
+    <text x="218" y="278" fill="#64748b">Approval · Explanation</text>
+    <text x="218" y="294" fill="#64748b">DecisionSummary</text>
+
+    <rect x="364" y="222" width="150" height="96" rx="8" fill="#f1f5f9" stroke="#e2e8f0"/>
+    <text x="376" y="242" font-weight="700" fill="#334155">Memory</text>
+    <text x="376" y="262" fill="#64748b">Card · Timeline</text>
+    <text x="376" y="278" fill="#64748b">Citation · Influence</text>
+    <text x="376" y="294" fill="#64748b">Forgetting</text>
+
+    <rect x="522" y="222" width="95" height="96" rx="8" fill="#f1f5f9" stroke="#e2e8f0"/>
+    <text x="534" y="242" font-weight="700" fill="#334155">Workflow</text>
+    <text x="534" y="262" fill="#64748b">Progress</text>
+    <text x="534" y="278" fill="#64748b">Timeline</text>
+    <text x="534" y="294" fill="#64748b">Queue · Graph</text>
+
+    <rect x="625" y="222" width="91" height="96" rx="8" fill="#f1f5f9" stroke="#e2e8f0"/>
+    <text x="637" y="242" font-weight="700" fill="#334155">Collab.</text>
+    <text x="637" y="262" fill="#64748b">Handoff</text>
+    <text x="637" y="278" fill="#64748b">Intervene</text>
+    <text x="637" y="294" fill="#64748b">Escalate</text>
+  </g>
+
+  <!-- Tokens layer -->
+  <rect x="32" y="348" width="700" height="60" rx="12" fill="#ecfdf5" stroke="#a7f3d0"/>
+  <text x="48" y="372" font-size="14" font-weight="700" fill="#065f46">Design tokens</text>
+  <text x="48" y="392" font-size="12" fill="#047857">Color · status · confidence · risk · spacing · radius · typography · elevation · animation</text>
+
+  <!-- Theming rail -->
+  <rect x="748" y="92" width="140" height="316" rx="12" fill="#0f172a"/>
+  <text x="818" y="240" font-size="14" font-weight="700" fill="#f8fafc" text-anchor="middle" transform="rotate(-90 818 240)">Theming  light · dark · tokens</text>
+</svg>
