@@ -21,5 +21,6 @@ export * from "./MemoryCard";
 export * from "./MemoryCitation";
 export * from "./MemoryInfluence";
 export * from "./MemoryTimeline";
+export * from "./QueueView";
 export * from "./RiskBadge";
 export * from "./TaskProgress";
