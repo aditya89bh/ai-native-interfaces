@@ -172,7 +172,7 @@ export function ApprovalPanel({
             type="button"
             onClick={() => onReject(notes)}
             disabled={controlsDisabled}
-            className="inline-flex items-center gap-1.5 rounded-md border bg-white px-3 py-1.5 text-sm font-medium hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 disabled:opacity-50 dark:bg-slate-800 dark:hover:bg-slate-700"
+            className="inline-flex items-center gap-1.5 rounded-md border bg-white px-3 py-1.5 text-sm font-medium hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-1 disabled:opacity-50 dark:bg-slate-800 dark:hover:bg-slate-700 dark:focus-visible:ring-offset-slate-900"
             style={rejectStyle}
           >
             {pending === "reject" ? <Spinner /> : null}
@@ -182,7 +182,7 @@ export function ApprovalPanel({
             type="button"
             onClick={() => onApprove(notes)}
             disabled={controlsDisabled}
-            className="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-semibold hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-1 disabled:opacity-50"
+            className="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-semibold hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-1 disabled:opacity-50 dark:focus-visible:ring-offset-slate-900"
             style={approveStyle}
           >
             {pending === "approve" ? <Spinner /> : null}
