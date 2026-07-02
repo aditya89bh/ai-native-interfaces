@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and usage help
+    url: https://github.com/aditya89bh/ai-native-interfaces/discussions
+    about: Ask questions and share ideas in Discussions.
+  - name: Security report
+    url: https://github.com/aditya89bh/ai-native-interfaces/security/advisories/new
+    about: Report a vulnerability privately (see SECURITY.md).

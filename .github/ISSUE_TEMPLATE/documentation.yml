@@ -1,0 +1,30 @@
+name: Documentation improvement
+description: Report unclear, missing, or incorrect documentation.
+labels: ["documentation", "triage"]
+body:
+  - type: textarea
+    id: location
+    attributes:
+      label: Where
+      description: Which page, README section, Storybook story, or API reference entry?
+      placeholder: docs/theming.md → "Custom token overrides"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong or missing
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested improvement
+      description: How would you phrase or structure it? Links and examples welcome.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and this is not a duplicate.
+          required: true
