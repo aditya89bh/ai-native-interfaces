@@ -8,4 +8,5 @@
 
 export * from "./AgentAvatar";
 export * from "./AgentCapabilityBadges";
+export * from "./AgentHeartbeat";
 export * from "./AgentStatusCard";
