@@ -1,0 +1,72 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Docs/Overview" />
+
+# AI Native Interfaces
+
+A reusable UI component library for AI-native products: approvals, confidence,
+agent state, memory, task progress, risk, action logs, and human handoff. Every
+component is presentational, typed, accessible, and them‑aware.
+
+Use the **Theme** toolbar (top of the canvas) to preview any story in light or
+dark. Use the **Accessibility** tab to review contrast and ARIA per story.
+
+## Getting started
+
+```tsx
+import { AgentStatusCard, ConfidenceIndicator } from "ai-native-interfaces";
+import "ai-native-interfaces/styles.css"; // optional token variables
+
+export function Example() {
+  return (
+    <div className="space-y-3">
+      <AgentStatusCard name="Research agent" state="thinking" />
+      <ConfidenceIndicator level="high" value={86} />
+    </div>
+  );
+}
+```
+
+Subpath imports are available for finer tree-shaking: `ai-native-interfaces/components`,
+`/templates`, `/theme`, and `/tokens`.
+
+## Best practices
+
+- **Keep components presentational.** Pass data in and handle events (`onApprove`,
+  `onTogglePin`) in your app. Components never call your backend or an agent.
+- **Compose, don't fork.** Build product surfaces from components (see the
+  Templates section) rather than copying markup.
+- **Theme with the `dark` class.** Toggle it on an ancestor, or use `ThemeProvider`.
+  Override neutral tokens (`--ani-surface`, `--ani-content`, `--ani-border`) to
+  rebrand without touching component code.
+- **Convey status with text, not color alone.** The components already pair color
+  with a label or icon; preserve that when you customize.
+
+## Accessibility
+
+- Interactive elements are native controls (`button`, `a`, `input`, `summary`),
+  keyboard operable, with visible focus rings that carry a dark-mode offset.
+- Asynchronous state uses live regions (`role="status"` / `role="alert"`) chosen
+  by urgency.
+- Decorative icons are `aria-hidden`; meaningful graphics have text alternatives.
+- Motion respects `prefers-reduced-motion`.
+
+## Do / Don't
+
+**Do**
+
+- Provide meaningful labels (`name`, `label`, `title`) — they back accessible names.
+- Reflect real state (`pending`, `approved`, `failed`) so live regions announce it.
+- Let confidence and risk come from your system; render them, don't invent them.
+
+**Don't**
+
+- Don't rely on color alone to signal risk or status.
+- Don't remove focus styles or replace native controls with click-only `div`s.
+- Don't embed business logic — resolve actions in your application layer.
+
+## Related documentation
+
+- [Theming](https://github.com/aditya89bh/ai-native-interfaces/blob/main/docs/theming.md)
+- [Accessibility](https://github.com/aditya89bh/ai-native-interfaces/blob/main/docs/accessibility.md)
+- [Production hardening](https://github.com/aditya89bh/ai-native-interfaces/blob/main/docs/production-hardening.md)
