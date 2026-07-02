@@ -2,6 +2,8 @@
 
 This document explains how `ai-native-interfaces` is organized and the technical decisions behind it. It is a living document and will grow as the library does.
 
+![Repository overview: source layers are developed with Storybook and tests, bundled by tsup into dist, published to npm and GitHub Pages, and gated by CI/CD workflows.](assets/repository-overview.svg)
+
 ## Goals
 
 - Ship small, composable, typed React primitives for AI-native UX.
@@ -10,17 +12,20 @@ This document explains how `ai-native-interfaces` is organized and the technical
 
 ## Layers
 
-The source is organized into three layers, from lowest to highest level:
+The source is organized into layers, from lowest to highest level:
 
 ```
-tokens  ->  components  ->  patterns
+tokens  ->  components  ->  templates
+                theme (cross-cutting)
 ```
 
-- **`src/tokens/`** — the visual foundation: colors, spacing, radii, and typography. Tokens are plain, typed values and the single source of truth for styling. They mirror the semantic scales in `tailwind.config.js`.
+- **`src/tokens/`** — the visual foundation: colors, spacing, radii, typography, elevation, and animation. Tokens are plain, typed values and the single source of truth for styling. They mirror the semantic scales in `tailwind.config.js`.
 - **`src/components/`** — primitive, single-purpose components (for example an agent status card or a confidence meter). Each is self-contained and depends only on tokens.
-- **`src/patterns/`** — higher-level compositions that combine multiple primitives into a complete interaction (for example an approval flow). Patterns depend on components, not the other way around.
+- **`src/templates/`** — complete product surfaces composed from components (for example a customer-support or workflow-approval console). Templates depend on components, not the other way around. See [product templates](product-templates.md).
+- **`src/theme/`** — the optional, cross-cutting `ThemeProvider` and `useTheme` for light/dark/system and token overrides. See [theming](theming.md).
+- **`src/patterns/`** — reserved for higher-level compositions that pair a few components into a recurring flow.
 
-Dependencies only ever point downward. A component may use tokens; a pattern may use components and tokens; nothing depends on patterns internally.
+Dependencies only ever point downward. A component may use tokens; a template may use components and tokens; nothing depends on templates internally.
 
 ## Component conventions
 
@@ -40,9 +45,10 @@ Tailwind CSS provides the utility layer. Semantic scales (agent state, confidenc
 
 ## Build and distribution
 
-- The library is authored in TypeScript and bundled for distribution to `dist/` (configured in later phases).
-- Output is ES modules with generated type declarations. `react` and `react-dom` are peer dependencies so the consuming app owns a single React instance.
-- The package is side-effect free (`"sideEffects": false`) to enable tree-shaking.
+- The library is authored in TypeScript and bundled for distribution to `dist/` with tsup.
+- Output is ES modules with generated type declarations and subpath entry points (`/components`, `/templates`, `/theme`, `/tokens`, `/styles.css`). `react` and `react-dom` are peer dependencies so the consuming app owns a single React instance.
+- JavaScript is side-effect free (`"sideEffects": ["**/*.css"]`) to enable tree-shaking, while the opt-in stylesheet is preserved when explicitly imported.
+- See [release engineering](release-engineering.md) for the CI/CD and publishing pipeline.
 
 ## Tooling
 
