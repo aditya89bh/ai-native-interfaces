@@ -61,6 +61,16 @@ export default {
         decelerate: "cubic-bezier(0, 0, 0, 1)",
         accelerate: "cubic-bezier(0.3, 0, 1, 1)",
       },
+      keyframes: {
+        "progress-indeterminate": {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(350%)" },
+        },
+      },
+      animation: {
+        "progress-indeterminate":
+          "progress-indeterminate 1.4s ease-in-out infinite",
+      },
     },
   },
   plugins: [],

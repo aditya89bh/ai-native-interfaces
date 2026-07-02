@@ -21,3 +21,4 @@ export * from "./MemoryCitation";
 export * from "./MemoryInfluence";
 export * from "./MemoryTimeline";
 export * from "./RiskBadge";
+export * from "./TaskProgress";
