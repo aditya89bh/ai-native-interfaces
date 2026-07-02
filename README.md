@@ -168,6 +168,32 @@ import {
 
 See the [Workflow & Execution system](docs/workflow-execution-system.md), [composition patterns & execution transparency](docs/workflow-composition-patterns.md), and the runnable example in `examples/WorkflowShowcase.tsx`.
 
+### Human Collaboration & Escalation
+
+Primitives for the moments an AI system needs a person — asking for help, escalating, assigning ownership, intervening, and capturing feedback. They are presentational: no backend, no agent framework, no state management library, only rendering the data you supply and emitting events.
+
+- **`HumanHandoffCard`** — a request to hand work to a person: reason, priority, assigned human, status, and timestamp.
+- **`InterventionPanel`** — controls to step into a running agent: pause, resume, override, and cancel, with loading and disabled states.
+- **`FeedbackCapture`** — structured human feedback: rating, category, correction text, and submit state.
+- **`EscalationBanner`** — the severity of a situation: info, warning, urgent, or blocked, announced politely or assertively.
+- **`AssignmentStatus`** — ownership and review state: unassigned, assigned, in review, or resolved, with an optional assignee.
+
+```tsx
+import {
+  HumanHandoffCard,
+  InterventionPanel,
+  FeedbackCapture,
+  EscalationBanner,
+  AssignmentStatus,
+} from "ai-native-interfaces";
+
+<EscalationBanner severity="urgent">
+  Decision needed within 5 minutes.
+</EscalationBanner>;
+```
+
+See the [Human Collaboration & Escalation system](docs/human-collaboration-system.md), [composition patterns](docs/human-collaboration-composition-patterns.md), and the runnable example in `examples/CollaborationShowcase.tsx`.
+
 ## Documentation
 
 The design system foundation defines _how_ AI-native interfaces should behave. Start with the philosophy and principles, then use the guidelines and patterns when designing specific components.
@@ -202,6 +228,8 @@ The design system foundation defines _how_ AI-native interfaces should behave. S
 - [Memory composition patterns & transparency](docs/memory-composition-patterns.md)
 - [Workflow & Execution system](docs/workflow-execution-system.md)
 - [Workflow composition patterns & execution transparency](docs/workflow-composition-patterns.md)
+- [Human Collaboration & Escalation system](docs/human-collaboration-system.md)
+- [Human Collaboration composition patterns](docs/human-collaboration-composition-patterns.md)
 
 **Patterns and process**
 
