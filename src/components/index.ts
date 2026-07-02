@@ -19,6 +19,7 @@ export * from "./ExecutionGraph";
 export * from "./ExecutionTimeline";
 export * from "./ExplanationCard";
 export * from "./ForgettingIndicator";
+export * from "./HumanHandoffCard";
 export * from "./MemoryCard";
 export * from "./MemoryCitation";
 export * from "./MemoryInfluence";
