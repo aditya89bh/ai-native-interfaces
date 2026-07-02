@@ -8,3 +8,4 @@
  */
 
 export * from "./CustomerSupportAgentTemplate";
+export * from "./ResearchAgentTemplate";
