@@ -75,6 +75,45 @@ examples/       # usage examples
 stories/        # Storybook stories
 ```
 
+## Components
+
+Components are grouped into systems — small, independent primitives that compose into higher-level flows.
+
+### Agent State
+
+Primitives for representing what an agent is and what it is doing right now: `AgentStatusCard`, `AgentAvatar`, `AgentCapabilityBadges`, `AgentHeartbeat`, and `AgentPresence`. See the [Agent State system](docs/agent-state-system.md).
+
+### Trust & Decision
+
+Primitives that help people understand, trust, approve, reject, or intervene in an AI decision. They are presentational: they render the data you supply and emit events, so they work across coding agents, research agents, copilots, robotics dashboards, customer support, and enterprise AI.
+
+- **`ConfidenceIndicator`** — how certain the model is (low / medium / high, optional numeric value; compact and detailed variants).
+- **`RiskBadge`** — the stakes of an action (low / moderate / high / critical).
+- **`ApprovalPanel`** — approve, reject, or edit before approving, with optional notes and loading states.
+- **`ExplanationCard`** — the reasoning behind a decision: summary plus expandable evidence, assumptions, and limitations.
+- **`DecisionSummary`** — a decision at a glance: action, confidence, risk, timestamp, reasoning, and approval status.
+
+```tsx
+import {
+  ConfidenceIndicator,
+  RiskBadge,
+  ApprovalPanel,
+  ExplanationCard,
+  DecisionSummary,
+} from "ai-native-interfaces";
+
+<DecisionSummary
+  action="Refund the customer $42.00"
+  confidence="high"
+  risk="moderate"
+  timestamp="2 minutes ago"
+  reasoning="The order arrived damaged and is within the refund window."
+  approvalStatus="pending"
+/>;
+```
+
+See the [Trust & Decision system](docs/trust-and-decision-system.md), [composition patterns](docs/trust-composition-patterns.md), and the runnable example in `examples/TrustShowcase.tsx`.
+
 ## Documentation
 
 The design system foundation defines _how_ AI-native interfaces should behave. Start with the philosophy and principles, then use the guidelines and patterns when designing specific components.
@@ -99,6 +138,12 @@ The design system foundation defines _how_ AI-native interfaces should behave. S
 - [Notification hierarchy](docs/notifications.md)
 - [Accessibility guidelines](docs/accessibility.md)
 - [Responsive behavior guidelines](docs/responsive.md)
+
+**Component systems**
+
+- [Agent State system](docs/agent-state-system.md)
+- [Trust & Decision system](docs/trust-and-decision-system.md)
+- [Trust component composition patterns](docs/trust-composition-patterns.md)
 
 **Patterns and process**
 
