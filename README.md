@@ -1,12 +1,14 @@
 # ai-native-interfaces
 
+[![CI](https://github.com/aditya89bh/ai-native-interfaces/actions/workflows/ci.yml/badge.svg)](.github/workflows/ci.yml)
+[![Visual regression](https://github.com/aditya89bh/ai-native-interfaces/actions/workflows/visual-regression.yml/badge.svg)](.github/workflows/visual-regression.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-1e293b.svg)](LICENSE)
-![React 18+](https://img.shields.io/badge/React-18%2B-0ea5e9.svg)
+![Version](https://img.shields.io/badge/version-1.0.0-0ea5e9.svg)
+![React 18+](https://img.shields.io/badge/React-18%2B-149eca.svg)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6.svg)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-38bdf8.svg)
 ![Storybook](https://img.shields.io/badge/Storybook-8-ff4785.svg)
 ![Tree-shakeable](https://img.shields.io/badge/bundle-tree--shakeable-10b981.svg)
-[![Visual regression](https://github.com/aditya89bh/ai-native-interfaces/actions/workflows/visual-regression.yml/badge.svg)](.github/workflows/visual-regression.yml)
 
 A reusable UI component library for **AI-native products** — the interface primitives that teams keep rebuilding whenever they ship an agent, assistant, or automated workflow.
 
@@ -16,7 +18,7 @@ Traditional design systems assume a human is the only actor. AI-native products 
 
 `ai-native-interfaces` provides those primitives as composable React components.
 
-> Status: early foundation. The API is unstable and will change before a `1.0` release. See the [component roadmap](docs/component-roadmap.md).
+> **Status: stable (v1.0.0).** The public API follows [semantic versioning](docs/versioning.md). See the [component roadmap](docs/component-roadmap.md) for what's next.
 
 ## What it covers
 
@@ -56,21 +58,61 @@ The design principles behind these goals are documented in [docs/principles.md](
 - [Storybook](https://storybook.js.org/) for component development and documentation
 - [Vitest](https://vitest.dev/) + [Testing Library](https://testing-library.com/) for tests
 
-## Getting started
-
-> Requires Node.js 18+.
+## Installation
 
 ```bash
-# install dependencies
+npm install ai-native-interfaces
+```
+
+`react` and `react-dom` (v18+) are peer dependencies. The library ships ESM with type declarations and is tree-shakeable. Styling is Tailwind-based — include the package in your Tailwind `content`, run `darkMode: "class"`, and optionally import the token stylesheet:
+
+```ts
+import "ai-native-interfaces/styles.css"; // optional: neutral token CSS variables
+```
+
+## Quick start
+
+```tsx
+import {
+  AgentStatusCard,
+  ConfidenceIndicator,
+  ApprovalPanel,
+  ThemeProvider,
+} from "ai-native-interfaces";
+
+export function ReviewPanel() {
+  return (
+    <ThemeProvider defaultTheme="system">
+      <div className="space-y-3">
+        <AgentStatusCard
+          name="Research agent"
+          state="needsApproval"
+          description="Drafted a resolution and is awaiting sign-off."
+        />
+        <ConfidenceIndicator level="high" value={86} variant="detailed" />
+        <ApprovalPanel
+          allowNotes
+          onApprove={(notes) => console.log("approved", notes)}
+          onReject={(notes) => console.log("rejected", notes)}
+        />
+      </div>
+    </ThemeProvider>
+  );
+}
+```
+
+Subpath imports are available for finer tree-shaking: `ai-native-interfaces/components`, `/templates`, `/theme`, and `/tokens`. Browse every component live in [Storybook](https://aditya89bh.github.io/ai-native-interfaces/).
+
+## Local development
+
+> Requires Node.js 18+ (CI uses Node 20). See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide.
+
+```bash
+git clone https://github.com/aditya89bh/ai-native-interfaces.git
+cd ai-native-interfaces
 npm install
-
-# run Storybook
-npm run storybook
-
-# type-check, lint, and test
-npm run typecheck
-npm run lint
-npm run test
+npm run storybook        # develop components
+npm run lint && npm run typecheck && npm run test
 ```
 
 ## Project structure
@@ -78,11 +120,13 @@ npm run test
 ```
 src/
   components/   # primitive AI-native components
-  patterns/     # higher-level compositions of primitives
-  tokens/       # design tokens (colors, spacing, radii, typography)
-docs/           # principles, architecture, and roadmap
-examples/       # usage examples
-stories/        # Storybook stories
+  templates/    # complete product surfaces composed from components
+  theme/        # ThemeProvider + useTheme (light/dark/system, token overrides)
+  tokens/       # design tokens (color, status, spacing, radius, typography, motion)
+  patterns/     # reserved for higher-level compositions
+docs/           # principles, architecture, guides, and release process
+examples/       # integrated showcases
+stories/        # Storybook stories and docs
 ```
 
 ## Components
@@ -303,10 +347,39 @@ The design system foundation defines _how_ AI-native interfaces should behave. S
 - [Library comparison](docs/comparison.md)
 - [Visual regression testing](docs/visual-regression.md)
 
+**Release and community**
+
+- [Release engineering](docs/release-engineering.md)
+- [Release process](RELEASE_PROCESS.md)
+- [Release checklist](docs/release-checklist.md)
+- [Repository labels](docs/labels.md)
+- [Contributing](CONTRIBUTING.md) · [Code of conduct](CODE_OF_CONDUCT.md) · [Support](SUPPORT.md) · [Security](SECURITY.md)
+
+## Roadmap
+
+v1.0.0 delivers the full component set, product templates, theming, and a complete release pipeline. Post-1.0 work is additive and backwards compatible:
+
+- More product templates and composition examples for common agent patterns.
+- Additional primitives driven by real usage and community requests.
+- Deeper accessibility coverage, including automated a11y checks in CI.
+- Continued docs and Storybook expansion.
+
+See the [component roadmap](docs/component-roadmap.md) for detail, and [versioning](docs/versioning.md) for the compatibility policy. Ideas and proposals are welcome via [issues](https://github.com/aditya89bh/ai-native-interfaces/issues/new/choose) and [discussions](https://github.com/aditya89bh/ai-native-interfaces/discussions).
+
+## Release status
+
+- **Current version:** 1.0.0 (stable).
+- **Changelog:** [CHANGELOG.md](CHANGELOG.md).
+- **Releases** are tag-driven and published to npm with provenance — see [release engineering](docs/release-engineering.md) and the [release process](RELEASE_PROCESS.md).
+
 ## Contributing
 
-Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
+Contributions are welcome. Start with [CONTRIBUTING.md](CONTRIBUTING.md) and the [code of conduct](CODE_OF_CONDUCT.md). Use the [issue templates](https://github.com/aditya89bh/ai-native-interfaces/issues/new/choose) for bugs, features, and documentation, and follow [SECURITY.md](SECURITY.md) for vulnerabilities. Need help? See [SUPPORT.md](SUPPORT.md).
+
+## Acknowledgements
+
+Built on the work of the open-source ecosystem — [React](https://react.dev/), [TypeScript](https://www.typescriptlang.org/), [Tailwind CSS](https://tailwindcss.com/), [Storybook](https://storybook.js.org/), [Vitest](https://vitest.dev/), [Testing Library](https://testing-library.com/), and [tsup](https://tsup.egoist.dev/). The design direction draws on established human-in-the-loop and explainable-AI UX practice. Thanks to everyone who files issues, opens pull requests, and helps shape a shared vocabulary for AI-native interfaces.
 
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE) © ai-native-interfaces contributors
