@@ -7,4 +7,5 @@
  */
 
 export * from "./AgentAvatar";
+export * from "./AgentCapabilityBadges";
 export * from "./AgentStatusCard";
