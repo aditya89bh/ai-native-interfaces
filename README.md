@@ -232,6 +232,19 @@ import { CustomerSupportAgentTemplate } from "ai-native-interfaces";
 
 Templates are driven in Storybook by clearly fictional demo data from `src/templates/mockData.ts`, which is never shipped. See [Product Templates](docs/product-templates.md) and [Components vs templates vs patterns](docs/components-vs-templates-vs-patterns.md).
 
+## Production readiness
+
+The library is built to be adopted, not just demoed. Every component is presentational, typed, accessible, and theme-aware, and the project ships the supporting infrastructure teams expect from a dependable dependency.
+
+- **Theming** — light, dark, and system color schemes via the `dark` class, with an optional [`ThemeProvider`](docs/theming.md) and CSS-variable token overrides for rebranding without forking components.
+- **Accessibility** — semantic HTML, keyboard operability, visible focus with dark-mode offsets, live regions by urgency, decorative icons hidden from assistive tech, and status never conveyed by color alone.
+- **Performance** — presentational components with memoization applied only where it pays off (for example the memoized `ExecutionGraph` layout), no global state, and optional context.
+- **Bundle** — ESM output, `react`/`react-dom` as peer dependencies, no runtime dependencies, CSS-safe `sideEffects`, and subpath exports (`/components`, `/templates`, `/theme`, `/tokens`) for fine-grained tree-shaking.
+- **Developer experience** — full TypeScript types, an [API reference](docs/api-reference.md), Storybook with a light/dark toolbar and autodocs, and [versioning](docs/versioning.md) and [maintenance](docs/maintenance.md) policies.
+- **Quality gates** — lint, typecheck, unit tests, Storybook build, and library build run before every release, with [visual regression](docs/visual-regression.md) configured via Chromatic.
+
+See [Production hardening](docs/production-hardening.md) for the full architecture and rationale.
+
 ## Documentation
 
 The design system foundation defines _how_ AI-native interfaces should behave. Start with the philosophy and principles, then use the guidelines and patterns when designing specific components.
@@ -279,6 +292,16 @@ The design system foundation defines _how_ AI-native interfaces should behave. S
 - [Reusable interaction patterns](docs/interaction-patterns.md)
 - [Design review checklist](docs/design-review-checklist.md)
 - [Component naming conventions](docs/naming-conventions.md)
+
+**Production readiness**
+
+- [Production hardening](docs/production-hardening.md)
+- [Theming](docs/theming.md)
+- [API reference](docs/api-reference.md)
+- [Versioning and migration](docs/versioning.md)
+- [Maintenance and component lifecycle](docs/maintenance.md)
+- [Library comparison](docs/comparison.md)
+- [Visual regression testing](docs/visual-regression.md)
 
 ## Contributing
 
