@@ -87,7 +87,7 @@ export function TaskProgress({
           className={cn(
             "flex items-center justify-between gap-2",
             styles.text,
-            "text-slate-600",
+            "text-slate-600 dark:text-slate-300",
           )}
         >
           {label != null ? (
@@ -95,7 +95,7 @@ export function TaskProgress({
           ) : (
             <span />
           )}
-          <span className="shrink-0 tabular-nums text-slate-400">
+          <span className="shrink-0 tabular-nums text-slate-400 dark:text-slate-500">
             {isIndeterminate || clamped === undefined
               ? config.label
               : `${status === "completed" ? 100 : clamped}%`}
@@ -111,7 +111,7 @@ export function TaskProgress({
           isIndeterminate ? undefined : status === "completed" ? 100 : clamped
         }
         className={cn(
-          "w-full overflow-hidden rounded-full bg-slate-100",
+          "w-full overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800",
           styles.track,
         )}
       >

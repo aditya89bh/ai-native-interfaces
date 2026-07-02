@@ -95,7 +95,9 @@ export function ForgettingIndicator({
         "inline-flex items-center",
         styles.gap,
         styles.text,
-        config.muted ? "text-slate-400" : "text-slate-600",
+        config.muted
+          ? "text-slate-400 dark:text-slate-500"
+          : "text-slate-600 dark:text-slate-300",
         className,
       )}
     >
@@ -114,7 +116,9 @@ export function ForgettingIndicator({
             {text}
           </span>
           {detail != null ? (
-            <span className="text-slate-400">· {detail}</span>
+            <span className="text-slate-400 dark:text-slate-500">
+              · {detail}
+            </span>
           ) : null}
         </span>
       ) : (

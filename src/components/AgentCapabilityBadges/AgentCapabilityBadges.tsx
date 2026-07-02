@@ -94,8 +94,8 @@ export function AgentCapabilityBadges({
                 styles.badge,
                 styles.gap,
                 enabled
-                  ? "border-slate-200 bg-slate-50 text-slate-700"
-                  : "border-dashed border-slate-200 bg-transparent text-slate-400",
+                  ? "border-slate-200 bg-slate-50 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
+                  : "border-dashed border-slate-200 bg-transparent text-slate-400 dark:border-slate-700 dark:text-slate-500",
               )}
             >
               {capability.icon ? (
@@ -118,7 +118,7 @@ export function AgentCapabilityBadges({
         <li>
           <span
             className={cn(
-              "inline-flex items-center rounded-full border border-slate-200 bg-slate-100 font-medium text-slate-500",
+              "inline-flex items-center rounded-full border border-slate-200 bg-slate-100 font-medium text-slate-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400",
               styles.badge,
             )}
             aria-label={`${hiddenCount} more capabilities`}

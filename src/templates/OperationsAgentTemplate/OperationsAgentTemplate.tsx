@@ -116,7 +116,7 @@ export function OperationsAgentTemplate({
           className="flex-1"
         />
         {heartbeat || presence ? (
-          <div className="flex flex-col gap-2 rounded-card border border-slate-200 bg-white p-3 shadow-elevation">
+          <div className="flex flex-col gap-2 rounded-card border border-slate-200 bg-white p-3 shadow-elevation dark:border-slate-700 dark:bg-slate-900">
             {heartbeat ? <AgentHeartbeat status={heartbeat} /> : null}
             {presence ? <AgentPresence presence={presence} /> : null}
           </div>
@@ -132,7 +132,7 @@ export function OperationsAgentTemplate({
       <section aria-labelledby="ops-pipeline-heading" className="space-y-2">
         <h3
           id="ops-pipeline-heading"
-          className="text-xs font-semibold uppercase tracking-wide text-slate-500"
+          className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400"
         >
           Pipeline
         </h3>
@@ -148,7 +148,7 @@ export function OperationsAgentTemplate({
           <section aria-labelledby="ops-queue-heading" className="space-y-2">
             <h3
               id="ops-queue-heading"
-              className="text-xs font-semibold uppercase tracking-wide text-slate-500"
+              className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400"
             >
               Job queue
             </h3>
@@ -171,7 +171,7 @@ export function OperationsAgentTemplate({
       <section aria-labelledby="ops-log-heading" className="space-y-2">
         <h3
           id="ops-log-heading"
-          className="text-xs font-semibold uppercase tracking-wide text-slate-500"
+          className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400"
         >
           Action log
         </h3>

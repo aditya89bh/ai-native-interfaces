@@ -98,7 +98,7 @@ export function ResearchAgentTemplate({
         <section aria-labelledby="research-steps-heading" className="space-y-2">
           <h3
             id="research-steps-heading"
-            className="text-xs font-semibold uppercase tracking-wide text-slate-500"
+            className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400"
           >
             Steps
           </h3>
@@ -111,7 +111,7 @@ export function ResearchAgentTemplate({
         >
           <h3
             id="research-sources-heading"
-            className="text-xs font-semibold uppercase tracking-wide text-slate-500"
+            className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400"
           >
             Sources
           </h3>
@@ -136,7 +136,7 @@ export function ResearchAgentTemplate({
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h3
             id="research-finding-heading"
-            className="text-xs font-semibold uppercase tracking-wide text-slate-500"
+            className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400"
           >
             Finding
           </h3>

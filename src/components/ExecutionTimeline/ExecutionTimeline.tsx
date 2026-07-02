@@ -95,7 +95,11 @@ export function ExecutionTimeline({
 }: ExecutionTimelineProps) {
   if (steps.length === 0) {
     return (
-      <p className={cn("text-sm text-slate-500", className)}>{emptyMessage}</p>
+      <p
+        className={cn("text-sm text-slate-500 dark:text-slate-400", className)}
+      >
+        {emptyMessage}
+      </p>
     );
   }
 
@@ -109,7 +113,7 @@ export function ExecutionTimeline({
             {index < steps.length - 1 ? (
               <span
                 aria-hidden="true"
-                className="absolute bottom-[-1rem] left-[9px] top-5 w-px bg-slate-200"
+                className="absolute bottom-[-1rem] left-[9px] top-5 w-px bg-slate-200 dark:bg-slate-700"
               />
             ) : null}
             <span
@@ -133,17 +137,17 @@ export function ExecutionTimeline({
             </span>
             <div className="flex flex-col gap-0.5">
               <div className="flex items-center justify-between gap-2">
-                <span className="text-sm font-medium text-slate-900">
+                <span className="text-sm font-medium text-slate-900 dark:text-slate-100">
                   {step.title}
                 </span>
                 {step.timestamp != null ? (
-                  <span className="shrink-0 text-xs text-slate-400">
+                  <span className="shrink-0 text-xs text-slate-400 dark:text-slate-500">
                     {step.timestamp}
                   </span>
                 ) : null}
               </div>
               {step.description != null ? (
-                <span className="text-sm text-slate-600">
+                <span className="text-sm text-slate-600 dark:text-slate-300">
                   {step.description}
                 </span>
               ) : null}

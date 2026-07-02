@@ -58,15 +58,17 @@ export function MemoryCitation({
     <figure
       aria-label={`Citation: ${source}`}
       className={cn(
-        "rounded-md border border-slate-200 bg-slate-50 p-3 text-sm",
+        "rounded-md border border-slate-200 bg-slate-50 p-3 text-sm dark:border-slate-700 dark:bg-slate-800",
         className,
       )}
     >
-      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-slate-500">
+      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-slate-500 dark:text-slate-400">
         {typeof index === "number" ? (
-          <span className="font-mono text-slate-400">[{index}]</span>
+          <span className="font-mono text-slate-400 dark:text-slate-500">
+            [{index}]
+          </span>
         ) : null}
-        <cite className="font-medium not-italic text-slate-700">
+        <cite className="font-medium not-italic text-slate-700 dark:text-slate-200">
           {href ? (
             <a
               href={href}
@@ -79,20 +81,20 @@ export function MemoryCitation({
           )}
         </cite>
         {retrievedAt != null ? (
-          <span className="text-slate-400">
+          <span className="text-slate-400 dark:text-slate-500">
             <span aria-hidden="true">· </span>
             Retrieved {retrievedAt}
           </span>
         ) : null}
         {percent != null ? (
-          <span className="ml-auto inline-flex items-center rounded-full bg-slate-200 px-2 py-0.5 font-medium text-slate-600">
+          <span className="ml-auto inline-flex items-center rounded-full bg-slate-200 px-2 py-0.5 font-medium text-slate-600 dark:bg-slate-700 dark:text-slate-200">
             {percent}% relevant
           </span>
         ) : null}
       </div>
 
       {excerpt != null ? (
-        <blockquote className="mt-2 border-l-2 border-slate-300 pl-2 text-slate-600">
+        <blockquote className="mt-2 border-l-2 border-slate-300 pl-2 text-slate-600 dark:border-slate-600 dark:text-slate-300">
           {excerpt}
         </blockquote>
       ) : null}

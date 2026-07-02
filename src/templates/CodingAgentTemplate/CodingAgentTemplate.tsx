@@ -126,7 +126,7 @@ export function CodingAgentTemplate({
         <section aria-labelledby="coding-plan-heading" className="space-y-2">
           <h3
             id="coding-plan-heading"
-            className="text-xs font-semibold uppercase tracking-wide text-slate-500"
+            className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400"
           >
             Plan
           </h3>
@@ -137,7 +137,7 @@ export function CodingAgentTemplate({
           <section aria-labelledby="coding-queue-heading" className="space-y-2">
             <h3
               id="coding-queue-heading"
-              className="text-xs font-semibold uppercase tracking-wide text-slate-500"
+              className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400"
             >
               Queue
             </h3>
@@ -170,7 +170,7 @@ export function CodingAgentTemplate({
       <section aria-labelledby="coding-log-heading" className="space-y-2">
         <h3
           id="coding-log-heading"
-          className="text-xs font-semibold uppercase tracking-wide text-slate-500"
+          className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400"
         >
           Command history
         </h3>

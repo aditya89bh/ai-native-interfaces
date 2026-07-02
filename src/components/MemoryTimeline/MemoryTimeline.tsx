@@ -52,7 +52,11 @@ export function MemoryTimeline({
 }: MemoryTimelineProps) {
   if (items.length === 0) {
     return (
-      <p className={cn("text-sm text-slate-500", className)}>{emptyMessage}</p>
+      <p
+        className={cn("text-sm text-slate-500 dark:text-slate-400", className)}
+      >
+        {emptyMessage}
+      </p>
     );
   }
 
@@ -62,28 +66,32 @@ export function MemoryTimeline({
         <li key={item.id} className="relative pl-6">
           <span
             aria-hidden="true"
-            className="absolute left-[3px] top-1.5 h-2 w-2 rounded-full bg-slate-400 ring-4 ring-white"
+            className="absolute left-[3px] top-1.5 h-2 w-2 rounded-full bg-slate-400 ring-4 ring-white dark:bg-slate-500 dark:ring-slate-900"
           />
           {index < items.length - 1 ? (
             <span
               aria-hidden="true"
-              className="absolute bottom-[-1rem] left-[6px] top-4 w-px bg-slate-200"
+              className="absolute bottom-[-1rem] left-[6px] top-4 w-px bg-slate-200 dark:bg-slate-700"
             />
           ) : null}
           <div className="flex flex-col gap-0.5">
             {item.timestamp != null ? (
-              <span className="text-xs text-slate-400">{item.timestamp}</span>
+              <span className="text-xs text-slate-400 dark:text-slate-500">
+                {item.timestamp}
+              </span>
             ) : null}
-            <span className="text-sm font-medium text-slate-900">
+            <span className="text-sm font-medium text-slate-900 dark:text-slate-100">
               {item.title}
             </span>
             {item.content ?? (
               <>
                 {item.summary != null ? (
-                  <span className="text-sm text-slate-600">{item.summary}</span>
+                  <span className="text-sm text-slate-600 dark:text-slate-300">
+                    {item.summary}
+                  </span>
                 ) : null}
                 {item.source != null ? (
-                  <span className="text-xs text-slate-400">
+                  <span className="text-xs text-slate-400 dark:text-slate-500">
                     <span>Source: </span>
                     {item.source}
                   </span>

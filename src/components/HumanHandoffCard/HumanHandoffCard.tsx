@@ -94,12 +94,14 @@ export function HumanHandoffCard({
     <article
       aria-label={title}
       className={cn(
-        "rounded-card border border-slate-200 bg-white p-4 shadow-elevation",
+        "rounded-card border border-slate-200 bg-white p-4 shadow-elevation dark:border-slate-700 dark:bg-slate-900",
         className,
       )}
     >
       <div className="flex items-start justify-between gap-3">
-        <h3 className="text-sm font-semibold text-slate-900">{title}</h3>
+        <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+          {title}
+        </h3>
         {priorityStyles ? (
           <span
             className="inline-flex shrink-0 items-center rounded-full border px-2 py-0.5 text-[11px] font-medium"
@@ -110,19 +112,23 @@ export function HumanHandoffCard({
         ) : null}
       </div>
 
-      <p className="mt-1.5 text-sm text-slate-600">{reason}</p>
+      <p className="mt-1.5 text-sm text-slate-600 dark:text-slate-300">
+        {reason}
+      </p>
 
       {assignee != null || statusStyles != null || timestamp != null ? (
-        <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-slate-100 pt-3 text-xs text-slate-500">
+        <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-slate-100 pt-3 text-xs text-slate-500 dark:border-slate-800 dark:text-slate-400">
           {assignee != null ? (
             <span className="flex items-center gap-2">
               <span
                 aria-hidden="true"
-                className="flex h-6 w-6 items-center justify-center rounded-full bg-slate-100 text-[10px] font-semibold text-slate-600"
+                className="flex h-6 w-6 items-center justify-center rounded-full bg-slate-100 text-[10px] font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-300"
               >
                 {initials(assignee)}
               </span>
-              <span className="text-slate-700">{assignee}</span>
+              <span className="text-slate-700 dark:text-slate-200">
+                {assignee}
+              </span>
             </span>
           ) : null}
           {statusStyles ? (
@@ -136,7 +142,9 @@ export function HumanHandoffCard({
             </span>
           ) : null}
           {timestamp != null ? (
-            <span className="ml-auto text-slate-400">{timestamp}</span>
+            <span className="ml-auto text-slate-400 dark:text-slate-500">
+              {timestamp}
+            </span>
           ) : null}
         </div>
       ) : null}

@@ -67,7 +67,11 @@ export function ExecutionGraph({
 
   if (nodes.length === 0) {
     return (
-      <p className={cn("text-sm text-slate-500", className)}>{emptyMessage}</p>
+      <p
+        className={cn("text-sm text-slate-500 dark:text-slate-400", className)}
+      >
+        {emptyMessage}
+      </p>
     );
   }
 
@@ -129,7 +133,10 @@ export function ExecutionGraph({
               markerHeight="6"
               orient="auto-start-reverse"
             >
-              <path d="M0 0 L10 5 L0 10 z" fill="#cbd5e1" />
+              <path
+                d="M0 0 L10 5 L0 10 z"
+                className="fill-slate-300 dark:fill-slate-600"
+              />
             </marker>
           </defs>
           {visibleEdges.map((edge, index) => {
@@ -145,8 +152,8 @@ export function ExecutionGraph({
                 key={`${edge.from}-${edge.to}-${index}`}
                 d={`M ${x1} ${y1} C ${midX} ${y1}, ${midX} ${y2}, ${x2} ${y2}`}
                 fill="none"
-                stroke="#cbd5e1"
                 strokeWidth="1.5"
+                className="stroke-slate-300 dark:stroke-slate-600"
                 markerEnd={`url(#${markerId})`}
               />
             );
@@ -167,10 +174,10 @@ export function ExecutionGraph({
           return (
             <div
               key={node.id}
-              className="absolute flex flex-col justify-center rounded-md border-l-4 border border-slate-200 bg-white px-3 shadow-elevation"
+              className="absolute flex flex-col justify-center rounded-md border-l-4 border border-slate-200 bg-white px-3 shadow-elevation dark:border-slate-700 dark:bg-slate-900"
               style={nodeStyle}
             >
-              <span className="truncate text-sm font-medium text-slate-800">
+              <span className="truncate text-sm font-medium text-slate-800 dark:text-slate-100">
                 {node.label}
               </span>
               <span

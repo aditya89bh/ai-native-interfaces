@@ -75,8 +75,9 @@ export function MemoryCard({
     <article
       aria-label={title}
       className={cn(
-        "rounded-card border border-slate-200 bg-white p-4 shadow-elevation",
-        pinned && "border-slate-300 ring-1 ring-slate-200",
+        "rounded-card border border-slate-200 bg-white p-4 shadow-elevation dark:border-slate-700 dark:bg-slate-900",
+        pinned &&
+          "border-slate-300 ring-1 ring-slate-200 dark:border-slate-600 dark:ring-slate-700",
         className,
       )}
     >
@@ -85,12 +86,14 @@ export function MemoryCard({
           <button
             type="button"
             onClick={onSelect}
-            className="rounded text-left text-sm font-semibold text-slate-900 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500"
+            className="rounded text-left text-sm font-semibold text-slate-900 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 dark:text-slate-100"
           >
             {title}
           </button>
         ) : (
-          <h3 className="text-sm font-semibold text-slate-900">{title}</h3>
+          <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+            {title}
+          </h3>
         )}
 
         {onTogglePin ? (
@@ -101,13 +104,15 @@ export function MemoryCard({
             aria-label={pinned ? "Unpin memory" : "Pin memory"}
             className={cn(
               "shrink-0 rounded p-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500",
-              pinned ? "text-slate-700" : "text-slate-300 hover:text-slate-500",
+              pinned
+                ? "text-slate-700 dark:text-slate-200"
+                : "text-slate-300 hover:text-slate-500 dark:text-slate-600 dark:hover:text-slate-400",
             )}
           >
             <PinIcon className="h-4 w-4" />
           </button>
         ) : pinned ? (
-          <span className="shrink-0 p-1 text-slate-700">
+          <span className="shrink-0 p-1 text-slate-700 dark:text-slate-200">
             <PinIcon className="h-4 w-4" />
             <span className="sr-only">Pinned</span>
           </span>
@@ -115,14 +120,18 @@ export function MemoryCard({
       </div>
 
       {summary != null ? (
-        <p className="mt-1.5 text-sm text-slate-600">{summary}</p>
+        <p className="mt-1.5 text-sm text-slate-600 dark:text-slate-300">
+          {summary}
+        </p>
       ) : null}
 
       {source != null || timestamp != null || confidence != null ? (
-        <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-slate-500">
+        <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-slate-500 dark:text-slate-400">
           {source != null ? (
             <span>
-              <span className="text-slate-400">Source: </span>
+              <span className="text-slate-400 dark:text-slate-500">
+                Source:{" "}
+              </span>
               {source}
             </span>
           ) : null}

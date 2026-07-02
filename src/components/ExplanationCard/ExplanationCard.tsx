@@ -11,18 +11,20 @@ function Section({ title, defaultOpen, children }: SectionProps) {
   return (
     <details
       open={defaultOpen}
-      className="group border-t border-slate-100 pt-2 first:border-t-0 first:pt-0"
+      className="group border-t border-slate-100 pt-2 first:border-t-0 first:pt-0 dark:border-slate-800"
     >
-      <summary className="flex cursor-pointer list-none items-center justify-between py-1 text-sm font-medium text-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500">
+      <summary className="flex cursor-pointer list-none items-center justify-between py-1 text-sm font-medium text-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 dark:text-slate-100">
         <span>{title}</span>
         <span
           aria-hidden="true"
-          className="text-slate-400 transition-transform group-open:rotate-90 motion-reduce:transition-none"
+          className="text-slate-400 transition-transform group-open:rotate-90 motion-reduce:transition-none dark:text-slate-500"
         >
           ›
         </span>
       </summary>
-      <div className="pb-1 pt-1 text-sm text-slate-600">{children}</div>
+      <div className="pb-1 pt-1 text-sm text-slate-600 dark:text-slate-300">
+        {children}
+      </div>
     </details>
   );
 }
@@ -75,14 +77,16 @@ export function ExplanationCard({
     <article
       aria-label={title}
       className={cn(
-        "rounded-card border border-slate-200 bg-white p-4 shadow-elevation",
+        "rounded-card border border-slate-200 bg-white p-4 shadow-elevation dark:border-slate-700 dark:bg-slate-900",
         className,
       )}
     >
-      <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+      <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
         {title}
       </h3>
-      <p className="mt-1.5 text-sm text-slate-800">{summary}</p>
+      <p className="mt-1.5 text-sm text-slate-800 dark:text-slate-100">
+        {summary}
+      </p>
 
       {evidence != null || assumptions != null || limitations != null ? (
         <div className="mt-3 space-y-2">

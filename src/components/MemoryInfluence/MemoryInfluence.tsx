@@ -67,22 +67,26 @@ export function MemoryInfluence({
     <section
       aria-label={label}
       className={cn(
-        "rounded-card border border-slate-200 bg-white p-4 shadow-elevation",
+        "rounded-card border border-slate-200 bg-white p-4 shadow-elevation dark:border-slate-700 dark:bg-slate-900",
         className,
       )}
     >
       {decision != null ? (
-        <p className="mb-3 text-sm text-slate-600">
-          <span className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+        <p className="mb-3 text-sm text-slate-600 dark:text-slate-300">
+          <span className="text-xs font-semibold uppercase tracking-wide text-slate-400 dark:text-slate-500">
             Influenced by memory
           </span>
           <br />
-          <span className="font-medium text-slate-900">{decision}</span>
+          <span className="font-medium text-slate-900 dark:text-slate-100">
+            {decision}
+          </span>
         </p>
       ) : null}
 
       {influences.length === 0 ? (
-        <p className="text-sm text-slate-500">{emptyMessage}</p>
+        <p className="text-sm text-slate-500 dark:text-slate-400">
+          {emptyMessage}
+        </p>
       ) : (
         <ul className="space-y-2.5">
           {influences.map((item) => {
@@ -94,18 +98,18 @@ export function MemoryInfluence({
             return (
               <li key={item.id} className="flex flex-col gap-1">
                 <div className="flex items-center justify-between gap-2 text-sm">
-                  <span className="flex min-w-0 items-center gap-1.5 text-slate-700">
+                  <span className="flex min-w-0 items-center gap-1.5 text-slate-700 dark:text-slate-200">
                     <span aria-hidden="true" style={{ color: config.color }}>
                       {config.glyph}
                     </span>
                     <span className="truncate">{item.label}</span>
                   </span>
-                  <span className="shrink-0 tabular-nums text-xs text-slate-500">
+                  <span className="shrink-0 tabular-nums text-xs text-slate-500 dark:text-slate-400">
                     {percent}%
                   </span>
                 </div>
                 <div
-                  className="h-1.5 w-full overflow-hidden rounded-full bg-slate-100"
+                  className="h-1.5 w-full overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800"
                   role="img"
                   aria-label={`${item.label}: ${config.word}, ${percent}% influence`}
                 >

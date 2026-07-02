@@ -125,18 +125,18 @@ export function CustomerSupportAgentTemplate({
           {customer ? (
             <section
               aria-labelledby="support-request-heading"
-              className="rounded-card border border-slate-200 bg-white p-4 shadow-elevation"
+              className="rounded-card border border-slate-200 bg-white p-4 shadow-elevation dark:border-slate-700 dark:bg-slate-900"
             >
               <h3
                 id="support-request-heading"
-                className="text-xs font-semibold uppercase tracking-wide text-slate-500"
+                className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400"
               >
                 Customer request
               </h3>
-              <p className="mt-1 text-sm font-medium text-slate-900">
+              <p className="mt-1 text-sm font-medium text-slate-900 dark:text-slate-100">
                 {customer.name}
               </p>
-              <p className="mt-1 text-sm text-slate-600">
+              <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
                 {customer.requestSummary}
               </p>
             </section>
@@ -170,7 +170,7 @@ export function CustomerSupportAgentTemplate({
         >
           <h3
             id="support-log-heading"
-            className="text-xs font-semibold uppercase tracking-wide text-slate-500"
+            className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400"
           >
             Action history
           </h3>

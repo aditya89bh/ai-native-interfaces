@@ -114,7 +114,7 @@ export function WorkflowApprovalConsoleTemplate({
         aria-label={title}
         className={cn("mx-auto max-w-5xl p-4 sm:p-6", className)}
       >
-        <p className="rounded-card border border-dashed border-slate-300 p-6 text-center text-sm text-slate-500">
+        <p className="rounded-card border border-dashed border-slate-300 p-6 text-center text-sm text-slate-500 dark:border-slate-600 dark:text-slate-400">
           {emptyMessage}
         </p>
       </section>
@@ -127,8 +127,12 @@ export function WorkflowApprovalConsoleTemplate({
       className={cn("mx-auto max-w-5xl space-y-4 p-4 sm:p-6", className)}
     >
       <header className="flex items-baseline justify-between gap-3">
-        <h2 className="text-lg font-semibold text-slate-900">{title}</h2>
-        <span className="text-sm text-slate-500">{items.length} pending</span>
+        <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+          {title}
+        </h2>
+        <span className="text-sm text-slate-500 dark:text-slate-400">
+          {items.length} pending
+        </span>
       </header>
 
       <div className="grid gap-6 lg:grid-cols-5">
@@ -147,11 +151,11 @@ export function WorkflowApprovalConsoleTemplate({
                   className={cn(
                     "w-full rounded-card border p-3 text-left transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500",
                     isSelected
-                      ? "border-slate-400 bg-slate-50"
-                      : "border-slate-200 bg-white hover:bg-slate-50",
+                      ? "border-slate-400 bg-slate-50 dark:border-slate-500 dark:bg-slate-800"
+                      : "border-slate-200 bg-white hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:hover:bg-slate-800",
                   )}
                 >
-                  <span className="block text-sm font-medium text-slate-900">
+                  <span className="block text-sm font-medium text-slate-900 dark:text-slate-100">
                     {item.decision.action}
                   </span>
                   <span className="mt-2 flex flex-wrap items-center gap-2">
@@ -166,7 +170,7 @@ export function WorkflowApprovalConsoleTemplate({
                       />
                     ) : null}
                     {item.priority ? (
-                      <span className="text-[11px] font-medium text-slate-500">
+                      <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400">
                         {priorityLabels[item.priority]} priority
                       </span>
                     ) : null}

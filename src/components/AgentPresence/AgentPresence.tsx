@@ -73,7 +73,7 @@ export function AgentPresence({
       role="img"
       aria-label={text}
       className={cn(
-        "inline-flex items-center text-slate-600",
+        "inline-flex items-center text-slate-600 dark:text-slate-300",
         styles.gap,
         styles.text,
         className,

@@ -119,15 +119,19 @@ export function ApprovalPanel({
       aria-label={title ?? "Approval request"}
       aria-busy={busy}
       className={cn(
-        "rounded-card border border-slate-200 bg-white p-4 shadow-elevation",
+        "rounded-card border border-slate-200 bg-white p-4 shadow-elevation dark:border-slate-700 dark:bg-slate-900",
         className,
       )}
     >
       {title ? (
-        <h3 className="text-sm font-semibold text-slate-900">{title}</h3>
+        <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+          {title}
+        </h3>
       ) : null}
       {description ? (
-        <p className="mt-1 text-sm text-slate-600">{description}</p>
+        <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
+          {description}
+        </p>
       ) : null}
 
       {children ? <div className="mt-3">{children}</div> : null}
@@ -136,7 +140,7 @@ export function ApprovalPanel({
         <div className="mt-3">
           <label
             htmlFor={notesId}
-            className="mb-1 block text-xs font-medium text-slate-700"
+            className="mb-1 block text-xs font-medium text-slate-700 dark:text-slate-200"
           >
             {notesLabel}
           </label>
@@ -147,7 +151,7 @@ export function ApprovalPanel({
             placeholder={notesPlaceholder}
             disabled={controlsDisabled}
             rows={2}
-            className="w-full resize-y rounded-md border border-slate-300 px-2.5 py-1.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500 disabled:opacity-50"
+            className="w-full resize-y rounded-md border border-slate-300 px-2.5 py-1.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500 disabled:opacity-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-500"
           />
         </div>
       ) : null}
@@ -158,7 +162,7 @@ export function ApprovalPanel({
             type="button"
             onClick={onEdit}
             disabled={controlsDisabled}
-            className="inline-flex items-center rounded-md px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 disabled:opacity-50"
+            className="inline-flex items-center rounded-md px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 disabled:opacity-50 dark:text-slate-200 dark:hover:bg-slate-800"
           >
             {editLabel}
           </button>
@@ -168,7 +172,7 @@ export function ApprovalPanel({
             type="button"
             onClick={() => onReject(notes)}
             disabled={controlsDisabled}
-            className="inline-flex items-center gap-1.5 rounded-md border bg-white px-3 py-1.5 text-sm font-medium hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 disabled:opacity-50"
+            className="inline-flex items-center gap-1.5 rounded-md border bg-white px-3 py-1.5 text-sm font-medium hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 disabled:opacity-50 dark:bg-slate-800 dark:hover:bg-slate-700"
             style={rejectStyle}
           >
             {pending === "reject" ? <Spinner /> : null}

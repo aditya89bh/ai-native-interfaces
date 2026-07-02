@@ -61,9 +61,11 @@ const sizeStyles: Record<
 };
 
 const variantStyles: Record<AgentStatusCardVariant, string> = {
-  subtle: "border border-slate-200 bg-white shadow-elevation",
-  outline: "border border-slate-300 bg-transparent",
-  solid: "border border-slate-200 bg-slate-50",
+  subtle:
+    "border border-slate-200 bg-white shadow-elevation dark:border-slate-700 dark:bg-slate-900",
+  outline: "border border-slate-300 bg-transparent dark:border-slate-600",
+  solid:
+    "border border-slate-200 bg-slate-50 dark:border-slate-700 dark:bg-slate-800",
 };
 
 interface StatusDotProps {
@@ -160,12 +162,12 @@ export function AgentStatusCard({
   const interactive = typeof onClick === "function";
 
   const rootClassName = cn(
-    "flex w-full items-start rounded-card text-left text-slate-900",
+    "flex w-full items-start rounded-card text-left text-slate-900 dark:text-slate-100",
     styles.root,
     styles.gap,
     variantStyles[variant],
     interactive &&
-      "cursor-pointer transition-colors hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-1",
+      "cursor-pointer transition-colors hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-1 dark:hover:bg-slate-800 dark:focus-visible:ring-offset-slate-900",
     className,
   );
 
@@ -186,13 +188,18 @@ export function AgentStatusCard({
             {stateLabel}
           </span>
           {timestamp != null ? (
-            <span className="ml-auto shrink-0 whitespace-nowrap text-xs text-slate-400">
+            <span className="ml-auto shrink-0 whitespace-nowrap text-xs text-slate-400 dark:text-slate-500">
               {timestamp}
             </span>
           ) : null}
         </div>
         {description ? (
-          <p className={cn("mt-1 text-slate-600", styles.name)}>
+          <p
+            className={cn(
+              "mt-1 text-slate-600 dark:text-slate-300",
+              styles.name,
+            )}
+          >
             {description}
           </p>
         ) : null}

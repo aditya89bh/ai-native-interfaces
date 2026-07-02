@@ -100,13 +100,17 @@ export function InterventionPanel({
       aria-label={title}
       aria-busy={busy}
       className={cn(
-        "rounded-card border border-slate-200 bg-white p-4 shadow-elevation",
+        "rounded-card border border-slate-200 bg-white p-4 shadow-elevation dark:border-slate-700 dark:bg-slate-900",
         className,
       )}
     >
-      <h3 className="text-sm font-semibold text-slate-900">{title}</h3>
+      <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+        {title}
+      </h3>
       {description != null ? (
-        <p className="mt-1 text-sm text-slate-600">{description}</p>
+        <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
+          {description}
+        </p>
       ) : null}
 
       <div className="mt-3 flex flex-wrap items-center gap-2">
@@ -115,7 +119,7 @@ export function InterventionPanel({
             type="button"
             onClick={onPause}
             disabled={controlsDisabled}
-            className="inline-flex items-center gap-1.5 rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 disabled:opacity-50"
+            className="inline-flex items-center gap-1.5 rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 disabled:opacity-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
           >
             {pending === "pause" ? <Spinner /> : null}
             Pause
@@ -126,7 +130,7 @@ export function InterventionPanel({
             type="button"
             onClick={onResume}
             disabled={controlsDisabled}
-            className="inline-flex items-center gap-1.5 rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 disabled:opacity-50"
+            className="inline-flex items-center gap-1.5 rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 disabled:opacity-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
           >
             {pending === "resume" ? <Spinner /> : null}
             Resume
@@ -137,7 +141,7 @@ export function InterventionPanel({
             type="button"
             onClick={onOverride}
             disabled={controlsDisabled}
-            className="inline-flex items-center gap-1.5 rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 disabled:opacity-50"
+            className="inline-flex items-center gap-1.5 rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 disabled:opacity-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
           >
             {pending === "override" ? <Spinner /> : null}
             Override action
@@ -148,7 +152,7 @@ export function InterventionPanel({
             type="button"
             onClick={onCancel}
             disabled={controlsDisabled}
-            className="ml-auto inline-flex items-center gap-1.5 rounded-md border bg-white px-3 py-1.5 text-sm font-medium hover:bg-red-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 disabled:opacity-50"
+            className="ml-auto inline-flex items-center gap-1.5 rounded-md border bg-white px-3 py-1.5 text-sm font-medium hover:bg-red-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 disabled:opacity-50 dark:bg-slate-800 dark:hover:bg-red-950/40"
             style={cancelStyle}
           >
             {pending === "cancel" ? <Spinner /> : null}

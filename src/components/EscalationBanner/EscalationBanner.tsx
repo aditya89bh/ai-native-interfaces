@@ -106,7 +106,9 @@ export function EscalationBanner({
           <span className="sr-only">{config.label}: </span>
           {heading}
         </p>
-        <div className="mt-0.5 text-sm text-slate-700">{children}</div>
+        <div className="mt-0.5 text-sm text-slate-700 dark:text-slate-200">
+          {children}
+        </div>
       </div>
       {action != null ? <div className="shrink-0">{action}</div> : null}
       {onDismiss ? (
@@ -114,7 +116,7 @@ export function EscalationBanner({
           type="button"
           onClick={onDismiss}
           aria-label="Dismiss"
-          className="shrink-0 rounded p-0.5 text-slate-400 hover:text-slate-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500"
+          className="shrink-0 rounded p-0.5 text-slate-400 hover:text-slate-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 dark:text-slate-500 dark:hover:text-slate-300"
         >
           <svg
             aria-hidden="true"

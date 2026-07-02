@@ -131,7 +131,7 @@ export function FeedbackCapture({
       <section
         aria-label={title}
         className={cn(
-          "rounded-card border border-slate-200 bg-white p-4 shadow-elevation",
+          "rounded-card border border-slate-200 bg-white p-4 shadow-elevation dark:border-slate-700 dark:bg-slate-900",
           className,
         )}
       >
@@ -160,19 +160,23 @@ export function FeedbackCapture({
       aria-label={title}
       aria-busy={submitting}
       className={cn(
-        "rounded-card border border-slate-200 bg-white p-4 shadow-elevation",
+        "rounded-card border border-slate-200 bg-white p-4 shadow-elevation dark:border-slate-700 dark:bg-slate-900",
         className,
       )}
     >
-      <h3 className="text-sm font-semibold text-slate-900">{title}</h3>
+      <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+        {title}
+      </h3>
       {description != null ? (
-        <p className="mt-1 text-sm text-slate-600">{description}</p>
+        <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
+          {description}
+        </p>
       ) : null}
 
       <div className="mt-3 space-y-3">
         {maxRating > 0 ? (
           <fieldset disabled={controlsDisabled}>
-            <legend className="mb-1 text-xs font-medium text-slate-700">
+            <legend className="mb-1 text-xs font-medium text-slate-700 dark:text-slate-200">
               {ratingLabel}
             </legend>
             <div className="flex items-center gap-1">
@@ -205,7 +209,7 @@ export function FeedbackCapture({
           <div>
             <label
               htmlFor={categoryId}
-              className="mb-1 block text-xs font-medium text-slate-700"
+              className="mb-1 block text-xs font-medium text-slate-700 dark:text-slate-200"
             >
               {categoryLabel}
             </label>
@@ -214,7 +218,7 @@ export function FeedbackCapture({
               value={category}
               onChange={(event) => setCategory(event.target.value)}
               disabled={controlsDisabled}
-              className="w-full rounded-md border border-slate-300 bg-white px-2.5 py-1.5 text-sm text-slate-900 focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500 disabled:opacity-50"
+              className="w-full rounded-md border border-slate-300 bg-white px-2.5 py-1.5 text-sm text-slate-900 focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500 disabled:opacity-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100"
             >
               <option value="">Select a category…</option>
               {categories.map((option) => (
@@ -229,7 +233,7 @@ export function FeedbackCapture({
         <div>
           <label
             htmlFor={correctionId}
-            className="mb-1 block text-xs font-medium text-slate-700"
+            className="mb-1 block text-xs font-medium text-slate-700 dark:text-slate-200"
           >
             {correctionLabel}
           </label>
@@ -240,7 +244,7 @@ export function FeedbackCapture({
             placeholder={correctionPlaceholder}
             disabled={controlsDisabled}
             rows={3}
-            className="w-full resize-y rounded-md border border-slate-300 px-2.5 py-1.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500 disabled:opacity-50"
+            className="w-full resize-y rounded-md border border-slate-300 px-2.5 py-1.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500 disabled:opacity-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-500"
           />
         </div>
 
@@ -249,7 +253,7 @@ export function FeedbackCapture({
             type="button"
             onClick={handleSubmit}
             disabled={controlsDisabled}
-            className="inline-flex items-center gap-1.5 rounded-md bg-slate-900 px-3 py-1.5 text-sm font-semibold text-white hover:bg-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-1 disabled:opacity-50"
+            className="inline-flex items-center gap-1.5 rounded-md bg-slate-900 px-3 py-1.5 text-sm font-semibold text-white hover:bg-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-1 disabled:opacity-50 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-slate-200 dark:focus-visible:ring-offset-slate-900"
           >
             {submitting ? <Spinner /> : null}
             {submitLabel}

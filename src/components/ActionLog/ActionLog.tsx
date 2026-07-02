@@ -62,7 +62,11 @@ export function ActionLog({
 }: ActionLogProps) {
   if (entries.length === 0) {
     return (
-      <p className={cn("text-sm text-slate-500", className)}>{emptyMessage}</p>
+      <p
+        className={cn("text-sm text-slate-500 dark:text-slate-400", className)}
+      >
+        {emptyMessage}
+      </p>
     );
   }
 
@@ -70,7 +74,7 @@ export function ActionLog({
     <ol
       aria-label={label}
       className={cn(
-        "divide-y divide-slate-100 rounded-card border border-slate-200 bg-white",
+        "divide-y divide-slate-100 rounded-card border border-slate-200 bg-white dark:divide-slate-800 dark:border-slate-700 dark:bg-slate-900",
         className,
       )}
     >
@@ -86,17 +90,19 @@ export function ActionLog({
             />
             <div className="flex min-w-0 flex-1 flex-col gap-0.5">
               <div className="flex flex-wrap items-baseline justify-between gap-x-2">
-                <span className="text-sm text-slate-800">{entry.action}</span>
+                <span className="text-sm text-slate-800 dark:text-slate-100">
+                  {entry.action}
+                </span>
                 {entry.timestamp != null ? (
-                  <span className="shrink-0 text-xs tabular-nums text-slate-400">
+                  <span className="shrink-0 text-xs tabular-nums text-slate-400 dark:text-slate-500">
                     {entry.timestamp}
                   </span>
                 ) : null}
               </div>
               {entry.actor != null || entry.detail != null ? (
-                <div className="flex flex-wrap items-center gap-x-2 text-xs text-slate-500">
+                <div className="flex flex-wrap items-center gap-x-2 text-xs text-slate-500 dark:text-slate-400">
                   {entry.actor != null ? (
-                    <span className="font-medium text-slate-600">
+                    <span className="font-medium text-slate-600 dark:text-slate-300">
                       {entry.actor}
                     </span>
                   ) : null}

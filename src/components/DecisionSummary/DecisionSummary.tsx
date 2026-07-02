@@ -33,10 +33,10 @@ interface FieldProps {
 function Field({ label, children }: FieldProps) {
   return (
     <div className="flex flex-col gap-1">
-      <dt className="text-[11px] font-medium uppercase tracking-wide text-slate-400">
+      <dt className="text-[11px] font-medium uppercase tracking-wide text-slate-400 dark:text-slate-500">
         {label}
       </dt>
-      <dd className="text-sm text-slate-700">{children}</dd>
+      <dd className="text-sm text-slate-700 dark:text-slate-200">{children}</dd>
     </div>
   );
 }
@@ -107,12 +107,12 @@ export function DecisionSummary({
     <article
       aria-label={title}
       className={cn(
-        "rounded-card border border-slate-200 bg-white p-4 shadow-elevation",
+        "rounded-card border border-slate-200 bg-white p-4 shadow-elevation dark:border-slate-700 dark:bg-slate-900",
         className,
       )}
     >
       <div className="flex items-start justify-between gap-3">
-        <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+        <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
           {title}
         </h3>
         {status ? (
@@ -125,7 +125,9 @@ export function DecisionSummary({
         ) : null}
       </div>
 
-      <p className="mt-1.5 text-sm font-medium text-slate-900">{action}</p>
+      <p className="mt-1.5 text-sm font-medium text-slate-900 dark:text-slate-100">
+        {action}
+      </p>
 
       {hasMeta ? (
         <dl className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3">
@@ -145,14 +147,16 @@ export function DecisionSummary({
           ) : null}
           {timestamp != null ? (
             <Field label="Time">
-              <span className="text-slate-500">{timestamp}</span>
+              <span className="text-slate-500 dark:text-slate-400">
+                {timestamp}
+              </span>
             </Field>
           ) : null}
         </dl>
       ) : null}
 
       {reasoning != null ? (
-        <p className="mt-3 border-t border-slate-100 pt-3 text-sm text-slate-600">
+        <p className="mt-3 border-t border-slate-100 pt-3 text-sm text-slate-600 dark:border-slate-800 dark:text-slate-300">
           {reasoning}
         </p>
       ) : null}

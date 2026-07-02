@@ -97,7 +97,7 @@ export function ConfidenceIndicator({
     <span
       {...ariaProps}
       className={cn(
-        "inline-flex items-center text-slate-600",
+        "inline-flex items-center text-slate-600 dark:text-slate-300",
         styles.gap,
         styles.text,
         className,
@@ -122,7 +122,7 @@ export function ConfidenceIndicator({
                 className={cn(
                   "rounded-full",
                   styles.segment,
-                  !filled && "bg-slate-200",
+                  !filled && "bg-slate-200 dark:bg-slate-700",
                 )}
                 style={segmentStyle}
               />
@@ -136,7 +136,7 @@ export function ConfidenceIndicator({
         <span className="sr-only">{accessibleLabel}</span>
       )}
       {variant === "detailed" && hasValue ? (
-        <span className="tabular-nums text-slate-400">{`${Math.round(value)}%`}</span>
+        <span className="tabular-nums text-slate-400 dark:text-slate-500">{`${Math.round(value)}%`}</span>
       ) : null}
     </span>
   );

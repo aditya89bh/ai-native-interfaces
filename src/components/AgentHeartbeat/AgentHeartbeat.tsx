@@ -96,7 +96,7 @@ export function AgentHeartbeat({
       role="status"
       aria-live="polite"
       className={cn(
-        "inline-flex items-center text-slate-600",
+        "inline-flex items-center text-slate-600 dark:text-slate-300",
         styles.gap,
         styles.text,
         className,
@@ -124,7 +124,9 @@ export function AgentHeartbeat({
       ) : (
         <span className="sr-only">{text}</span>
       )}
-      {detail != null ? <span className="text-slate-400">{detail}</span> : null}
+      {detail != null ? (
+        <span className="text-slate-400 dark:text-slate-500">{detail}</span>
+      ) : null}
     </span>
   );
 }

@@ -91,7 +91,7 @@ export function QueueView({
   return (
     <div className={cn("flex flex-col gap-2", className)}>
       {showCounts && items.length > 0 ? (
-        <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-slate-500">
+        <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-slate-500 dark:text-slate-400">
           {counts.map(({ status, count }) => (
             <span key={status} className="inline-flex items-center gap-1.5">
               <span
@@ -106,11 +106,13 @@ export function QueueView({
       ) : null}
 
       {items.length === 0 ? (
-        <p className="text-sm text-slate-500">{emptyMessage}</p>
+        <p className="text-sm text-slate-500 dark:text-slate-400">
+          {emptyMessage}
+        </p>
       ) : (
         <ul
           aria-label={label}
-          className="divide-y divide-slate-100 rounded-card border border-slate-200 bg-white"
+          className="divide-y divide-slate-100 rounded-card border border-slate-200 bg-white dark:divide-slate-800 dark:border-slate-700 dark:bg-slate-900"
         >
           {items.map((item) => {
             const config = statusConfig[item.status];
@@ -135,11 +137,11 @@ export function QueueView({
                     style={{ backgroundColor: config.color }}
                   />
                   <span className="min-w-0">
-                    <span className="block truncate text-sm text-slate-800">
+                    <span className="block truncate text-sm text-slate-800 dark:text-slate-100">
                       {item.label}
                     </span>
                     {item.detail != null ? (
-                      <span className="block truncate text-xs text-slate-400">
+                      <span className="block truncate text-xs text-slate-400 dark:text-slate-500">
                         {item.detail}
                       </span>
                     ) : null}
