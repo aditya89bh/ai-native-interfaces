@@ -112,6 +112,11 @@ export interface AgentStatusCardProps {
   timestamp?: ReactNode;
   /** Trailing content such as action buttons. */
   actions?: ReactNode;
+  /**
+   * When provided, the whole card becomes an interactive button. It is
+   * keyboard operable (Enter and Space) with a visible focus ring.
+   */
+  onClick?: () => void;
   /** Additional classes appended to the root element. */
   className?: string;
 }
@@ -144,6 +149,7 @@ export function AgentStatusCard({
   icon,
   timestamp,
   actions,
+  onClick,
   className,
 }: AgentStatusCardProps) {
   const stateLabel = label ?? defaultStateLabels[state];
@@ -151,19 +157,20 @@ export function AgentStatusCard({
   const styles = sizeStyles[size];
   const isAnimated = animated && activeStates.has(state);
   const labelStyle: CSSProperties = { color };
+  const interactive = typeof onClick === "function";
 
-  return (
-    <div
-      className={cn(
-        "flex items-start rounded-card text-slate-900",
-        styles.root,
-        styles.gap,
-        variantStyles[variant],
-        className,
-      )}
-      role="status"
-      aria-live="polite"
-    >
+  const rootClassName = cn(
+    "flex w-full items-start rounded-card text-left text-slate-900",
+    styles.root,
+    styles.gap,
+    variantStyles[variant],
+    interactive &&
+      "cursor-pointer transition-colors hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-1",
+    className,
+  );
+
+  const body = (
+    <>
       {icon ?? (
         <StatusDot color={color} size={styles.dot} animated={isAnimated} />
       )}
@@ -193,6 +200,25 @@ export function AgentStatusCard({
       {actions != null ? (
         <div className="ml-1 flex shrink-0 items-center gap-1">{actions}</div>
       ) : null}
+    </>
+  );
+
+  if (interactive) {
+    return (
+      <button
+        type="button"
+        onClick={onClick}
+        className={rootClassName}
+        aria-label={`${name}: ${stateLabel}`}
+      >
+        {body}
+      </button>
+    );
+  }
+
+  return (
+    <div className={rootClassName} role="status" aria-live="polite">
+      {body}
     </div>
   );
 }
