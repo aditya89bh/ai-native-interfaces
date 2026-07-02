@@ -144,6 +144,30 @@ import {
 
 See the [Memory Interfaces system](docs/memory-interfaces-system.md), [composition patterns & transparency guidelines](docs/memory-composition-patterns.md), and the runnable example in `examples/MemoryShowcase.tsx`.
 
+### Workflow & Execution
+
+Primitives for visualizing how an AI task runs — progress, steps, queues, dependencies, and the actions taken. They are presentational: no backend, no agent framework, only rendering the data you supply.
+
+- **`TaskProgress`** — progress of a single task: percentage, indeterminate, completed, failed, or paused.
+- **`ExecutionTimeline`** — sequential execution steps with per-step status.
+- **`QueueView`** — queued work with pending / running / completed / failed status and summary counts.
+- **`ExecutionGraph`** — execution nodes and their dependencies, laid out by depth, with an accessible text description.
+- **`ActionLog`** — a chronological, auditable record of actions with actor, timestamp, and outcome.
+
+```tsx
+import {
+  TaskProgress,
+  ExecutionTimeline,
+  QueueView,
+  ExecutionGraph,
+  ActionLog,
+} from "ai-native-interfaces";
+
+<TaskProgress label="Indexing files" value={62} />;
+```
+
+See the [Workflow & Execution system](docs/workflow-execution-system.md), [composition patterns & execution transparency](docs/workflow-composition-patterns.md), and the runnable example in `examples/WorkflowShowcase.tsx`.
+
 ## Documentation
 
 The design system foundation defines _how_ AI-native interfaces should behave. Start with the philosophy and principles, then use the guidelines and patterns when designing specific components.
@@ -176,6 +200,8 @@ The design system foundation defines _how_ AI-native interfaces should behave. S
 - [Trust component composition patterns](docs/trust-composition-patterns.md)
 - [Memory Interfaces system](docs/memory-interfaces-system.md)
 - [Memory composition patterns & transparency](docs/memory-composition-patterns.md)
+- [Workflow & Execution system](docs/workflow-execution-system.md)
+- [Workflow composition patterns & execution transparency](docs/workflow-composition-patterns.md)
 
 **Patterns and process**
 
