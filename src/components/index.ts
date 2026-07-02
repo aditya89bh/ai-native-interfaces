@@ -13,5 +13,6 @@ export * from "./AgentPresence";
 export * from "./AgentStatusCard";
 export * from "./ApprovalPanel";
 export * from "./ConfidenceIndicator";
+export * from "./DecisionSummary";
 export * from "./ExplanationCard";
 export * from "./RiskBadge";
