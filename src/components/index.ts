@@ -15,6 +15,7 @@ export * from "./ApprovalPanel";
 export * from "./ConfidenceIndicator";
 export * from "./DecisionSummary";
 export * from "./ExplanationCard";
+export * from "./ForgettingIndicator";
 export * from "./MemoryCard";
 export * from "./MemoryCitation";
 export * from "./MemoryInfluence";
