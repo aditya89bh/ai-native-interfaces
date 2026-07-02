@@ -1,4 +1,4 @@
-import { useId } from "react";
+import { memo, useId, useMemo } from "react";
 import type { CSSProperties } from "react";
 import { semanticStatus } from "../../tokens";
 import { cn } from "../../utils/cn";
@@ -56,7 +56,7 @@ export interface ExecutionGraphProps {
  * />
  * ```
  */
-export function ExecutionGraph({
+function ExecutionGraphComponent({
   nodes,
   edges,
   label = "Execution graph",
@@ -64,6 +64,33 @@ export function ExecutionGraph({
   className,
 }: ExecutionGraphProps) {
   const markerId = useId();
+
+  // Layout is the only non-trivial computation here; memoize it on its inputs
+  // so re-renders that don't change nodes/edges don't recompute positions.
+  const { positions, width, height, nodeById, parentsById, visibleEdges } =
+    useMemo(() => {
+      const layout = computeGraphLayout(nodes, edges);
+      const byId = new Map(nodes.map((node) => [node.id, node]));
+      const parents = new Map<string, string[]>();
+      for (const node of nodes) parents.set(node.id, []);
+      for (const edge of edges) {
+        if (byId.has(edge.from) && byId.has(edge.to)) {
+          parents.get(edge.to)!.push(edge.from);
+        }
+      }
+      const visible = edges.filter(
+        (edge) =>
+          layout.positions.has(edge.from) && layout.positions.has(edge.to),
+      );
+      return {
+        positions: layout.positions,
+        width: layout.width,
+        height: layout.height,
+        nodeById: byId,
+        parentsById: parents,
+        visibleEdges: visible,
+      };
+    }, [nodes, edges]);
 
   if (nodes.length === 0) {
     return (
@@ -74,20 +101,6 @@ export function ExecutionGraph({
       </p>
     );
   }
-
-  const { positions, width, height } = computeGraphLayout(nodes, edges);
-  const nodeById = new Map(nodes.map((node) => [node.id, node]));
-  const parentsById = new Map<string, string[]>();
-  for (const node of nodes) parentsById.set(node.id, []);
-  for (const edge of edges) {
-    if (nodeById.has(edge.from) && nodeById.has(edge.to)) {
-      parentsById.get(edge.to)!.push(edge.from);
-    }
-  }
-
-  const visibleEdges = edges.filter(
-    (edge) => positions.has(edge.from) && positions.has(edge.to),
-  );
 
   return (
     <div
@@ -193,3 +206,8 @@ export function ExecutionGraph({
     </div>
   );
 }
+
+/**
+ * Memoized so re-renders with unchanged `nodes`/`edges` skip the layout work.
+ */
+export const ExecutionGraph = memo(ExecutionGraphComponent);
