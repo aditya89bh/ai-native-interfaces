@@ -11,3 +11,4 @@ export * from "./CodingAgentTemplate";
 export * from "./CustomerSupportAgentTemplate";
 export * from "./OperationsAgentTemplate";
 export * from "./ResearchAgentTemplate";
+export * from "./WorkflowApprovalConsoleTemplate";
