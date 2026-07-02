@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*
+ * Design-token CSS variables.
+ *
+ * Neutral surface, content, and border tokens are expressed as space-separated
+ * RGB channels so they compose with Tailwind's `<alpha-value>` (e.g.
+ * `bg-surface/80`). Switch schemes with the `dark` class and override any token
+ * on a scope element (see ThemeProvider `tokenOverrides`) to rebrand without
+ * forking component code.
+ */
+@layer base {
+  :root {
+    --ani-surface: 255 255 255;
+    --ani-surface-subtle: 248 250 252;
+    --ani-surface-muted: 241 245 249;
+    --ani-border: 226 232 240;
+    --ani-border-strong: 203 213 225;
+    --ani-content: 15 23 42;
+    --ani-content-muted: 71 85 105;
+    --ani-content-subtle: 100 116 139;
+    --ani-content-faint: 148 163 184;
+  }
+
+  .dark {
+    --ani-surface: 15 23 42;
+    --ani-surface-subtle: 30 41 59;
+    --ani-surface-muted: 51 65 85;
+    --ani-border: 51 65 85;
+    --ani-border-strong: 71 85 105;
+    --ani-content: 248 250 252;
+    --ani-content-muted: 203 213 225;
+    --ani-content-subtle: 148 163 184;
+    --ani-content-faint: 100 116 139;
+  }
+}

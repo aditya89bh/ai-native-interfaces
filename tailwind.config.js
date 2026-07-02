@@ -10,6 +10,24 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Neutral semantic tokens, backed by CSS variables so they respond to
+        // the `dark` class and to ThemeProvider token overrides. Optional to
+        // use — components also ship with explicit light/dark utilities.
+        surface: {
+          DEFAULT: "rgb(var(--ani-surface) / <alpha-value>)",
+          subtle: "rgb(var(--ani-surface-subtle) / <alpha-value>)",
+          muted: "rgb(var(--ani-surface-muted) / <alpha-value>)",
+        },
+        content: {
+          DEFAULT: "rgb(var(--ani-content) / <alpha-value>)",
+          muted: "rgb(var(--ani-content-muted) / <alpha-value>)",
+          subtle: "rgb(var(--ani-content-subtle) / <alpha-value>)",
+          faint: "rgb(var(--ani-content-faint) / <alpha-value>)",
+        },
+        line: {
+          DEFAULT: "rgb(var(--ani-border) / <alpha-value>)",
+          strong: "rgb(var(--ani-border-strong) / <alpha-value>)",
+        },
         // Semantic colors used across AI-native components. These map to the
         // design tokens defined in src/tokens and can be overridden by consumers.
         status: {
