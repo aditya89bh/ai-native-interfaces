@@ -194,6 +194,34 @@ import {
 
 See the [Human Collaboration & Escalation system](docs/human-collaboration-system.md), [composition patterns](docs/human-collaboration-composition-patterns.md), and the runnable example in `examples/CollaborationShowcase.tsx`.
 
+### Product Templates
+
+Complete, presentational AI product surfaces assembled from the components above. Each accepts typed, demo-ready data through props and emits events — no backend, no agent framework, no fabricated claims. They are a fast starting point: render one with mock data, then swap in your own.
+
+- **`CustomerSupportAgentTemplate`** — a support agent proposing a ticket resolution, with escalation, approval, and action history.
+- **`ResearchAgentTemplate`** — a research agent's progress, steps, sources, and synthesized finding.
+- **`CodingAgentTemplate`** — a coding agent's capabilities, plan, queue, proposed change, and command history.
+- **`OperationsAgentTemplate`** — robotics/industrial monitoring: health, an execution graph, a job queue, and intervention controls.
+- **`WorkflowApprovalConsoleTemplate`** — a queue of decisions awaiting human approval, with a detail and approval pane.
+
+```tsx
+import { CustomerSupportAgentTemplate } from "ai-native-interfaces";
+
+<CustomerSupportAgentTemplate
+  agent={{ name: "Support agent", state: "needsApproval" }}
+  resolution={{
+    action: "Refund $128.40",
+    confidence: "high",
+    risk: "moderate",
+  }}
+  actions={actions}
+  onApprove={(notes) => submit(notes)}
+  onReject={(notes) => decline(notes)}
+/>;
+```
+
+Templates are driven in Storybook by clearly fictional demo data from `src/templates/mockData.ts`, which is never shipped. See [Product Templates](docs/product-templates.md) and [Components vs templates vs patterns](docs/components-vs-templates-vs-patterns.md).
+
 ## Documentation
 
 The design system foundation defines _how_ AI-native interfaces should behave. Start with the philosophy and principles, then use the guidelines and patterns when designing specific components.
@@ -230,6 +258,11 @@ The design system foundation defines _how_ AI-native interfaces should behave. S
 - [Workflow composition patterns & execution transparency](docs/workflow-composition-patterns.md)
 - [Human Collaboration & Escalation system](docs/human-collaboration-system.md)
 - [Human Collaboration composition patterns](docs/human-collaboration-composition-patterns.md)
+
+**Product templates**
+
+- [Product Templates](docs/product-templates.md)
+- [Components vs templates vs patterns](docs/components-vs-templates-vs-patterns.md)
 
 **Patterns and process**
 
